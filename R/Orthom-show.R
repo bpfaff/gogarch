@@ -1,4 +1,4 @@
 ##
-## show-method for objects of class orthom
+## show-method for objects of class Orthom
 ##
-setMethod("show", "Orthom", function(object) print(object@M))
+setMethod(f = "show", signature = "Orthom", function(object) print(object@M))

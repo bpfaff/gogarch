@@ -4,6 +4,7 @@
 
 \alias{Orthom-class}
 \alias{show,Orthom-method}
+\alias{print,Orthom-method}
 
 \encoding{latin1}
 
@@ -28,7 +29,8 @@
 
 \section{Methods}{
   \describe{
-    \S4method{show}{print-method applied to \code{object@M}.}
+    \S4method{show}{show-method for objects of class \code{Orthom}.}
+    \S4method{print}{print-method for objects of class \code{Orthom}.}
   }
 }
 

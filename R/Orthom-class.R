@@ -1,8 +1,4 @@
 ##
-## Class definition of orthogonal matrices
-##
-setClass("Orthom", representation(M = "matrix"))
-##
 ## Validity function for objects of class Orthom
 ##
 validOrthomObject <- function(object){
@@ -24,6 +20,7 @@ validOrthomObject <- function(object){
   }
 }
 ##
-## Setting validOrthomObject() as validity function
+## Class definition of orthogonal matrices
 ##
-setValidity("Orthom", validOrthomObject)
+setClass(Class = "Orthom", representation(M = "matrix"), validity = validOrthomObject)
+
