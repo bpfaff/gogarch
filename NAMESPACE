@@ -2,7 +2,7 @@
 import(methods)
 
 ## Functions
-export(goinit, gollh, Rd2, UprodR, unvech, validOrthomObject)
+export(goinit, gollh, Rd2, UprodR, unvech, validOrthomObject, validGoinitObject)
 
 ## Classes       
 exportClasses("Goinit", "Orthom")
