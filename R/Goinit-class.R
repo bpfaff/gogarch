@@ -6,27 +6,27 @@ validGoinitObject <- function(object){
   if(all.equal(diff(dim(object@V)), 0, check.attributes = FALSE)){
     TRUE
   } else {
-    stop("\nObject 'V' is not a square matrix.\n")
+    print("\nObject 'V' is not a square matrix.\n")
   }
   if(all.equal(diff(dim(object@P)), 0, check.attributes = FALSE)){
     TRUE
   } else {
-    stop("\nObject 'P' is not a square matrix.\n")
+    print("\nObject 'P' is not a square matrix.\n")
   }
   if(all.equal(diff(dim(object@Dsqr)), 0, check.attributes = FALSE)){
     TRUE
   } else {
-    stop("\nObject 'Dsqr' is not a square matrix.\n")
+    print("\nObject 'Dsqr' is not a square matrix.\n")
   }
   if(all.equal(det(object@Dsqr), prod(diag(object@Dsqr)), check.attributes = FALSE)){
     TRUE
   } else {
-    stop("\nObject 'Dsqr' is not a diagonal matrix.\n")
+    print("\nObject 'Dsqr' is not a diagonal matrix.\n")
   }  
   if(all.equal(object@V, object@P %*% object@Dsqr^2 %*% t(object@P), check.attributes = FALSE)){ 
     TRUE
   } else {
-    stop("\nCovariance matrix cannot be replicated from singular values.\n")
+    print("\nCovariance matrix cannot be replicated from singular values.\n")
   }
 }
 ##
