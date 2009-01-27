@@ -20,7 +20,6 @@ validOrthomObject <- function(object){
   }
 }
 ##
-## Class definition of orthogonal matrices
+## Setting as validity function
 ##
-setClass(Class = "Orthom", representation(M = "matrix"), validity = validOrthomObject)
-
+setValidity("Orthom", validOrthomObject)

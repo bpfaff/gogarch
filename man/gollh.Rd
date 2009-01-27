@@ -14,9 +14,8 @@
 }
 
 \usage{
-gollh(params, X, P, Dsqr, m, n, formula = ~garch(1, 1),
-      garchlist = list(init.rec = "mci", delta = 2, skew = 1,
-      shape = 4, cond.dist = "norm", include.mean = FALSE, 
+gollh(params, object, garchlist = list(init.rec = "mci", delta = 2,
+      skew = 1, shape = 4, cond.dist = "norm", include.mean = FALSE, 
       include.delta = NULL, include.skew = NULL, include.shape = NULL,
       leverage = NULL, trace = FALSE, algorithm = "nlminb",
       hessian = "ropt", control = list(), title = NULL,
@@ -25,14 +24,7 @@ gollh(params, X, P, Dsqr, m, n, formula = ~garch(1, 1),
 
 \arguments{
   \item{params}{Vector of initial values for \code{theta}.}
-  \item{X}{Matrix, the original data matrix with dimension \eqn{n \times m}.}
-  \item{P}{Matrix, rotation matrix returned by \code{svd} or
-  \code{prcomp}, dimension \eqn{m \times m}.}
-  \item{Dsqr}{Matrix, square roots of the eigenvalue decomposition on
-  its diagonal, dimension \eqn{m \times m}.}
-  \item{m}{Integer, number of columns of \code{X}.}
-  \item{n}{Integer, number of rows of \code{X}.}
-  \item{formula}{Formula, type of GARCH model, default is \code{~ garch(1,1)}.}
+  \item{object}{An object of class \code{Goinit} or an extension thereof.}
   \item{garchlist}{List, elements are passed to \code{garchFit}.}
 }
 

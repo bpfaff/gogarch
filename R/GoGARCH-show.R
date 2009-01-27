@@ -1,0 +1,28 @@
+setMethod(f = "show", signature = "GoGARCH", definition = function(object){
+  title <- "*** GO-GARCH ***"
+  stars <- paste(rep("*", nchar(title)), collapse = "")
+  cat("\n")
+  cat(paste(stars, "\n"))
+  cat(paste(title, "\n"))
+  cat(paste(stars, "\n"))  
+  cat("\n")
+  cat(paste("Components estimated by:", object@estby))
+  cat("\n")
+  cat(paste("Dimension of data matrix:", paste("(", nrow(object@X), " x ", ncol(object@X), ").", sep = "")))
+  cat("\n")
+  cat(paste("Formula for component GARCH models:", paste(as.character(object@garchf), collapse = " "), "\n"))
+  cat("\n")  
+  if(length(object@Z) != 0){
+    cat("Linar Map Z:\n")
+    print(object@Z, quote = FALSE)
+    cat("\n")
+    cat("and its inverse:\n")
+    print(solve(object@Z), quote = FALSE)
+    cat("\n")
+  }
+  garchc <- matrix(unlist(lapply(object@models, function(x) coef(x))), nrow = ncol(object@X), byrow = TRUE)
+  colnames(garchc) <- names(object@models[[1]]@fit$par)
+  rownames(garchc) <- paste("y", 1:nrow(garchc), sep = "")
+  cat("Estimated GARCH coefficients:\n")
+  print(garchc) 
+})

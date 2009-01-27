@@ -21,11 +21,6 @@ setMethod(f = "show", signature = "Goinit", function(object){
     print(formatC(object@Dsqr), quote = FALSE)
     cat("\n")
   }
-  if(length(object@V) != 0){
-    cat("Variance/Covariance matrix:\n")
-    print(formatC(object@V), quote = FALSE)
-    cat("\n")
-  }
   cat(paste("Formula for component GARCH models:\n", paste(as.character(object@garchf), collapse = " "), "\n"))
 }
 )

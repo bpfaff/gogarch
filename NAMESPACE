@@ -2,10 +2,11 @@
 import(methods)
 
 ## Functions
-export(goinit, gollh, Rd2, UprodR, unvech, validOrthomObject, validGoinitObject)
+export(goest, gogarch, goinit, gollh, gotheta, M, Rd2, t, UprodR, unvech, validOrthomObject, validGoinitObject)
 
 ## Classes       
-exportClasses("Goinit", "Orthom")
+exportClasses("Goestml", "GoGARCH", "Goinit", "Orthom")
 
 ## Methods
-exportMethods("show", "print")
+exportMethods("goest", "M", "print", "show", "t")
+

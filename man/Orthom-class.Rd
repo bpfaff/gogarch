@@ -3,8 +3,11 @@
 \docType{class}
 
 \alias{Orthom-class}
-\alias{show,Orthom-method}
+\alias{M}
+\alias{M,Orthom-method}
 \alias{print,Orthom-method}
+\alias{show,Orthom-method}
+\alias{t,Orthom-method}
 
 \encoding{latin1}
 
@@ -29,8 +32,10 @@
 
 \section{Methods}{
   \describe{
-    \S4method{show}{show-method for objects of class \code{Orthom}.}
+    \S4method{M}{Returns the slot \code{M} of class \code{Orthom}.}
     \S4method{print}{print-method for objects of class \code{Orthom}.}
+    \S4method{show}{show-method for objects of class \code{Orthom}.}
+    \S4method{t}{Transpose of \code{object@M}.}
   }
 }
 

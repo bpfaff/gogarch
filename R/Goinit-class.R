@@ -30,7 +30,6 @@ validGoinitObject <- function(object){
   }
 }
 ##
-## Class definition of initial GO-GARCH objects
+## Setting as validity function
 ##
-setClass(Class = "Goinit", representation(X = "matrix", V = "matrix", P = "matrix", Dsqr = "matrix", garchf = "formula"), validity = validGoinitObject)
-
+setValidity("Goinit", validGoinitObject)
