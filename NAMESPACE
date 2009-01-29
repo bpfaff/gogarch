@@ -1,12 +1,45 @@
-##
-import(methods)
+## Import packages
+import("methods")
 
-## Functions
-export(goest, gogarch, goinit, gollh, gotheta, M, Rd2, t, UprodR, unvech, validOrthomObject, validGoinitObject)
+## Import functions
+importFrom("stats",
+           "coef",
+           "logLik",
+           "residuals",
+           "resid")
 
 ## Classes       
-exportClasses("Goestml", "GoGARCH", "Goinit", "Orthom")
+exportClasses("Goestml",
+              "GoGARCH",
+              "Goinit",
+              "Orthom")
 
 ## Methods
-exportMethods("goest", "M", "print", "show", "t")
+exportMethods("angles",
+              "cvar",
+              "ccor",
+              "ccov",
+              "coef",
+              "converged",
+              "goest",
+              "logLik",
+              "M",
+              "print",
+              "show",
+              "t",
+              "residuals",
+              "resid")
+
+## Functions
+export("gogarch",
+       "goinit",
+       "gollh",
+       "gotheta",
+       "Rd2",
+       "UprodR",
+       "unvech",
+       "validOrthomObject",
+       "validGoinitObject")
+
+
 

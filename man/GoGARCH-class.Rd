@@ -6,6 +6,13 @@
 
 \alias{GoGARCH-class}
 \alias{show,GoGARCH-method}
+\alias{cvar,GoGARCH-method}
+\alias{ccov,GoGARCH-method}
+\alias{ccor,GoGARCH-method}
+\alias{coef,GoGARCH-method}
+\alias{converged,GoGARCH-method}
+\alias{residuals,GoGARCH-method}
+\alias{resid,GoGARCH-method}
 
 \title{Class "GoGARCH": Estimated GO-GARCH Models}
 
@@ -28,6 +35,8 @@
     \item{\code{models}:}{Object of class \code{"list"}: List of
 	 univariate GARCH model fits.}
     \item{\code{estby}:}{Object of class \code{"character"}: Estimation method.}
+    \item{\code{CALL}:}{Object of class \code{"call"}: Result of
+	 \code{match.call} in generating function.} 
     \item{\code{X}:}{Object of class \code{"matrix"}: The data matrix.}
     \item{\code{V}:}{Object of class \code{"matrix"}: Covariance matrix
 	 of \code{X}.}
@@ -46,7 +55,14 @@ Class \code{"\linkS4class{Goinit}"}, directly.
 
 \section{Methods}{
   \describe{
-    \S4method{show}{show-method for objects of class \code{GoGARCH}.}
+    \item{cvar}{Returns the conditional variances.}
+    \item{ccov}{Returns the conditional co-variances.}
+    \item{ccor}{Returns the conditional correlations.}
+    \item{coef}{Returns the coeffiecients of the component GARCH models.}
+    \item{converged}{Returns the convergence codes of the component
+  GARCH models.}  
+    \item{residuals}{Returns the residuals of the component GARCH models.}
+    \item{show}{show-method for objects of class \code{GoGARCH}.}
   }
 }
 

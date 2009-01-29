@@ -1,4 +1,4 @@
-setMethod(f = "show", signature = "GoGARCH", definition = function(object){
+setMethod(f = "show", signature(object = "GoGARCH"), definition = function(object){
   title <- "*** GO-GARCH ***"
   stars <- paste(rep("*", nchar(title)), collapse = "")
   cat("\n")
@@ -20,9 +20,9 @@ setMethod(f = "show", signature = "GoGARCH", definition = function(object){
     print(solve(object@Z), quote = FALSE)
     cat("\n")
   }
-  garchc <- matrix(unlist(lapply(object@models, function(x) coef(x))), nrow = ncol(object@X), byrow = TRUE)
-  colnames(garchc) <- names(object@models[[1]]@fit$par)
-  rownames(garchc) <- paste("y", 1:nrow(garchc), sep = "")
   cat("Estimated GARCH coefficients:\n")
-  print(garchc) 
+  print(coef(object))
+  cat("\n")
+  cat("Convergence codes of component GARCH models:\n")
+  print(converged(object))  
 })

@@ -1,4 +1,4 @@
 ##
 ## print-method for objects of class Orthom
 ##
-setMethod(f = "print", signature = "Orthom", function(x, ...) print(x@M, ...))
+setMethod(f = "print", signature(x = "Orthom"), function(x, ...) print(x@M, ...))

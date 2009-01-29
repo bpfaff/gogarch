@@ -5,7 +5,7 @@ setClass(Class = "Goinit", representation(X = "matrix", V = "matrix", P = "matri
 ##
 ## Class definition of GO-GARCH objects
 ##
-setClass(Class = "GoGARCH", representation(Z = "matrix", Y = "matrix", H = "list", models = "list", estby = "character"), contains = "Goinit")
+setClass(Class = "GoGARCH", representation(Z = "matrix", Y = "matrix", H = "list", models = "list", estby = "character", CALL = "call"), contains = "Goinit")
 ##
 ## Class definition of GO-GARCH objects, estimated by Maximum-Likelihood
 ##

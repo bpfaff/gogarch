@@ -1,4 +1,4 @@
 ##
 ## Transpose method for objects of class Orthom
 ##
-setMethod("t", "Orthom", function(x) t(x@M))
+setMethod("t", signature(x = "Orthom"), function(x) t(x@M))

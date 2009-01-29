@@ -14,7 +14,7 @@ function(theta, object, garchlist = list(init.rec = "mci", delta = 2, skew = 1, 
   Z <- object@P %*% object@Dsqr %*% t(U)
   Zinv <- solve(Z)
   Y <- object@X %*% Zinv
-  fitted <- apply(Y, 2, function(x) do.call("garchFit", c(list(formula = object@garchf, data = x), garchlist)))
+  fitted <- apply(Y, 2, function(x) do.call("garchFit", c(list(formula = object@garchf, data = quote(x)), garchlist)))
   H <- matrix(unlist(lapply(fitted, function(x) x@h.t)), ncol = m, nrow = n)
   Hdf <- data.frame(t(H))
   Ht <- lapply(Hdf, function(x) Z %*% diag(x) %*% t(Z))

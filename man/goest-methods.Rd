@@ -18,12 +18,16 @@
 }
 
 \section{Methods}{
-\describe{
-\item{object = "Goestml", initial = "numeric", garchlist =
-  "list"}{The starting values for the Euler angles are provided in
+  \describe{
+    \item{goest}{\code{signature(object = "Goestml", initial = "numeric", garchlist = "list")}}
+  }
+}
+
+\details{
+  The starting values for the Euler angles are provided in the argument
   \code{initial} and the list \code{garchlist} contains the elements
-  that are passed \code{garchFit}.}
-}}
+  that are passed \code{garchFit}. 
+}
 
 \author{
   Bernhard Pfaff
