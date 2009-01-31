@@ -19,7 +19,6 @@
 \alias{converged,Goestml-method}
 \alias{logLik,Goestml-method}
 \alias{residuals,Goestml-method}
-\alias{resid,Goestml-method}
 \alias{show,Goestml-method}
 
 \title{Class "Goestml": GO-GARCH  models estimated by Maximum-Likelihood}

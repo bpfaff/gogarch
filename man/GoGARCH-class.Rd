@@ -12,7 +12,6 @@
 \alias{coef,GoGARCH-method}
 \alias{converged,GoGARCH-method}
 \alias{residuals,GoGARCH-method}
-\alias{resid,GoGARCH-method}
 
 \title{Class "GoGARCH": Estimated GO-GARCH Models}
 

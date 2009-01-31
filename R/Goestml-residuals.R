@@ -1,9 +1,5 @@
-setMethod(f = "residuals", signature(object = "Goestml"), definition = function(object,  ...){
-  residuals(as(object, "GoGARCH"), ...) 
+setMethod(f = "residuals", signature(object = "Goestml"), definition = function(object, standardize = FALSE){
+  callNextMethod(object = object, standardize = standardize)
 })
 
-
-setMethod(f = "resid", signature(object = "Goestml"), definition = function(object, ...){
-  resid(as(object, "GoGARCH"), ...) 
-})
 

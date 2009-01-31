@@ -26,3 +26,10 @@ setGeneric("ccor", function(object, ...) standardGeneric("ccor"))
 ## Generic definition for extracting convergence codes
 ##
 setGeneric("converged", function(object, ...) standardGeneric("converged"))
+##
+## Setting Generics for coef, residuals, logLik and t
+##
+setGeneric("coef")
+setGeneric("residuals")
+setGeneric("t")
+setGeneric("logLik")

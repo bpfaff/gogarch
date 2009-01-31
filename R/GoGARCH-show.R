@@ -20,9 +20,10 @@ setMethod(f = "show", signature(object = "GoGARCH"), definition = function(objec
     print(solve(object@Z), quote = FALSE)
     cat("\n")
   }
-  cat("Estimated GARCH coefficients:\n")
+  cat("Estimated GARCH coefficients:\n")   
   print(coef(object))
   cat("\n")
   cat("Convergence codes of component GARCH models:\n")
-  print(converged(object))  
+  print(converged(object))
+  invisible(object)
 })
