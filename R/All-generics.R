@@ -1,7 +1,7 @@
 ##
 ## Generic definition for estimating GO-GARCH models
 ##
-setGeneric("goest", function(object, initial, garchlist, ...) standardGeneric("goest"))
+setGeneric("goest", function(object, ...) standardGeneric("goest"))
 ##
 ## Generic definition for extracting object@M for objects of class Orthom
 ##
@@ -30,6 +30,9 @@ setGeneric("converged", function(object, ...) standardGeneric("converged"))
 ## Setting Generics for coef, residuals, logLik and t
 ##
 setGeneric("coef")
-setGeneric("residuals")
-setGeneric("t")
+setGeneric("formula")
 setGeneric("logLik")
+setGeneric("residuals")
+setGeneric("summary")
+setGeneric("t")
+setGeneric("update")

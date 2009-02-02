@@ -5,13 +5,16 @@
 \encoding{latin1}
 
 \alias{GoGARCH-class}
-\alias{show,GoGARCH-method}
 \alias{cvar,GoGARCH-method}
 \alias{ccov,GoGARCH-method}
 \alias{ccor,GoGARCH-method}
 \alias{coef,GoGARCH-method}
 \alias{converged,GoGARCH-method}
+\alias{formula,GoGARCH-method}
 \alias{residuals,GoGARCH-method}
+\alias{show,GoGARCH-method}
+\alias{summary,GoGARCH-method}
+\alias{update,GoGARCH-method}
 
 \title{Class "GoGARCH": Estimated GO-GARCH Models}
 
@@ -60,8 +63,11 @@ Class \code{"\linkS4class{Goinit}"}, directly.
     \item{coef}{Returns the coeffiecients of the component GARCH models.}
     \item{converged}{Returns the convergence codes of the component
   GARCH models.}  
+    \item{formula}{Returns the formula for the component GARCH models.}
     \item{residuals}{Returns the residuals of the component GARCH models.}
     \item{show}{show-method for objects of class \code{GoGARCH}.}
+    \item{summary}{summary-method for objects of class \code{Goestml}.}
+    \item{update}{Updates an object of class \code{GoGARCH}.}
   }
 }
 

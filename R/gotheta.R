@@ -19,6 +19,6 @@ function(theta, object, garchlist = list(init.rec = "mci", delta = 2, skew = 1, 
   Hdf <- data.frame(t(H))
   Ht <- lapply(Hdf, function(x) Z %*% diag(x) %*% t(Z))
   names(Ht) <- rownames(object@X)
-  result <- new("GoGARCH", Z = Z, Y = Y, H = Ht, models = fitted, X = object@X, P = object@P, Dsqr = object@Dsqr, V = object@V, garchf = object@garchf)
+  result <- new("GoGARCH", Z = Z, Y = Y, H = Ht, models = fitted, X = object@X, P = object@P, Dsqr = object@Dsqr, V = object@V, garchf = object@garchf, CALL = match.call())
   return(result)
 }

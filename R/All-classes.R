@@ -11,6 +11,10 @@ setClass(Class = "GoGARCH", representation(Z = "matrix", Y = "matrix", H = "list
 ##
 setClass(Class = "Goestml", representation(opt = "list"), contains = "GoGARCH")
 ##
+## Class definition for summary objects from GoGARCH
+##
+setClass(Class = "Gosum", representation(name = "character", method = "character", model = "formula", garchc = "list", Zinv = "matrix"))
+##
 ## Class definition of orthogonal matrices
 ##
 setClass(Class = "Orthom", representation(M = "matrix"))

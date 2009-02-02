@@ -1,10 +1,5 @@
 gollh <-
-function(params, object, garchlist = list(
-         init.rec = "mci", delta = 2, skew = 1, shape = 4, cond.dist = "norm",
-         include.mean = FALSE, include.delta = NULL, include.skew = NULL,
-         include.shape = NULL, leverage = NULL, trace = FALSE,
-         algorithm = "nlminb", hessian = "ropt", control = list(),
-         title = NULL, description = NULL)){
+function(params, object, garchlist){
   gotheta <- gotheta(theta = params, object = object, garchlist = garchlist)
   m <- ncol(object@X)
   n <- nrow(object@X)

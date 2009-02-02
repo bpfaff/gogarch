@@ -2,13 +2,13 @@
 import(methods)
 
 ## Import functions
-importFrom(stats, coef, logLik, residuals)
+importFrom(stats, coef, formula, logLik, residuals, update)
 
 ## Classes       
-exportClasses(Goestml, GoGARCH, Goinit, Orthom)
+exportClasses(Goestml, GoGARCH, Goinit, Gosum, Orthom)
 
 ## Methods
-exportMethods(angles, cvar, ccor, ccov, coef, converged, goest, logLik, M, print, show, t, residuals)
+exportMethods(angles, cvar, ccor, ccov, coef, converged, formula, goest, logLik, M, print, show, summary, t, residuals, update)
 
 ## Functions
 export(gogarch, goinit, gollh, gotheta, Rd2, UprodR, unvech, validOrthomObject, validGoinitObject)

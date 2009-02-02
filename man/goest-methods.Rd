@@ -6,7 +6,7 @@
 
 \alias{goest-methods}
 
-\alias{goest,Goestml,numeric,list-method}
+\alias{goest,Goestml-method}
 
 \alias{goest}
 
@@ -19,7 +19,7 @@
 
 \section{Methods}{
   \describe{
-    \item{goest}{\code{signature(object = "Goestml", initial = "numeric", garchlist = "list")}}
+    \item{goest}{\code{signature(object = "Goestml")}}
   }
 }
 
