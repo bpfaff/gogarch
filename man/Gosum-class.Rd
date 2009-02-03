@@ -44,8 +44,4 @@
   \code{\linkS4class{GoGARCH}}, \code{\linkS4class{Goestml}} 
 }
 
-\examples{
-showClass("Gosum")
-}
-
 \keyword{classes}

@@ -1,5 +1,5 @@
 setMethod(f = "summary", signature(object = "GoGARCH"), definition = function(object){
-  name <- as.character(object@CALL$data)
+  name <- object@name
   method <- object@estby
   model <- object@garchf
   garchc <- lapply(object@models, function(x) x@fit$matcoef)

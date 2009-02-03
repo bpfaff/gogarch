@@ -28,7 +28,8 @@
       eigenvalues on diagonal, else zero.}
     \item{\code{garchf}:}{Object of class \code{"formula"}: Garch
 	 formula used for uncorrelated component GARCH models.}
-
+    \item{\code{name}:}{Object of class \code{"character"}: The name of
+	 the original data object.}
   }
 }
 

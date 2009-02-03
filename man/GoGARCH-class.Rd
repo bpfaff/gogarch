@@ -11,6 +11,7 @@
 \alias{coef,GoGARCH-method}
 \alias{converged,GoGARCH-method}
 \alias{formula,GoGARCH-method}
+\alias{predict,GoGARCH-method}
 \alias{residuals,GoGARCH-method}
 \alias{show,GoGARCH-method}
 \alias{summary,GoGARCH-method}
@@ -48,7 +49,9 @@
       eigenvalues on diagonal, else zero.}
     \item{\code{garchf}:}{Object of class \code{"formula"}: Garch
 	 formula used for uncorrelated component GARCH models.}
-  }
+    \item{\code{name}:}{Object of class \code{"character"}: The name of
+	 the original data object.}
+     }
 }
 
 \section{Extends}{
@@ -64,9 +67,13 @@ Class \code{"\linkS4class{Goinit}"}, directly.
     \item{converged}{Returns the convergence codes of the component
   GARCH models.}  
     \item{formula}{Returns the formula for the component GARCH models.}
+    \item{predict}{Returns the conditional covariances and mean
+  forecasts and the forecasts of the component GARCH models, object is
+  of class \code{Gopredict}.}
     \item{residuals}{Returns the residuals of the component GARCH models.}
     \item{show}{show-method for objects of class \code{GoGARCH}.}
-    \item{summary}{summary-method for objects of class \code{Goestml}.}
+    \item{summary}{summary-method for objects of class \code{GoGARCH},
+  object is of class \code{Gosum}.}
     \item{update}{Updates an object of class \code{GoGARCH}.}
   }
 }
@@ -76,7 +83,7 @@ Class \code{"\linkS4class{Goinit}"}, directly.
 }
 
 \seealso{
-  \code{\linkS4class{Goinit}}
+  \code{\linkS4class{Goinit}}, \code{\linkS4class{Gosum}}, \code{\linkS4class{Gopredict}}
 }
 
 \keyword{classes}

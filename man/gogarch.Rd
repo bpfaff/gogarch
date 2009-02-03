@@ -13,7 +13,7 @@
   models. 
 }
 \usage{
-gogarch(data, formula, scale = FALSE, method = c("ml"), initial = NULL,
+gogarch(data, formula, scale = FALSE, method = c("ml", "nls"), initial = NULL,
         garchlist = list(init.rec = "mci", delta = 2, skew = 1, shape =
         4, cond.dist = "norm", include.mean = FALSE, include.delta = NULL, 
         include.skew = NULL, include.shape = NULL, leverage = NULL, trace =
@@ -26,8 +26,8 @@ gogarch(data, formula, scale = FALSE, method = c("ml"), initial = NULL,
   \item{formula}{Formula: valid formula for univariate GARCH models.}
   \item{scale}{Logical, if \code{TRUE} the data is scaled. The default
   is \code{scale = FALSE}.}
-  \item{method}{Character: currently only Maximum-Likelihood estimation
-  is implemented.}
+  \item{method}{Character: by Maximum-Likelihood \code{method = "ml"} or by non-linear
+  Least-Squares \code{method = "nls"}.}
   \item{initial}{Numeric: starting values for Euler angles (see Details).}
   \item{garchlist}{List: Elements are passed to \code{garchFit}.}
   \item{\dots}{Ellipsis argument: is passed to \code{nlminb}.}

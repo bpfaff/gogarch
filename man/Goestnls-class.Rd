@@ -1,45 +1,39 @@
-\name{Goestml-class}
-
-\docType{class}
+\name{Goestnls-class}
 
 \encoding{latin1}
 
-\alias{Goestml-class}
-\alias{angles}
-\alias{cvar}
-\alias{ccov}
-\alias{ccor}
-\alias{converged}
-\alias{logLik}
-\alias{angles,Goestml-method}
-\alias{cvar,Goestml-method}
-\alias{ccor,Goestml-method}
-\alias{ccov,Goestml-method}
-\alias{coef,Goestml-method}
-\alias{converged,Goestml-method}
-\alias{formula,Goestml-method}
-\alias{logLik,Goestml-method}
-\alias{predict,Goestml-method}
-\alias{residuals,Goestml-method}
-\alias{show,Goestml-method}
-\alias{summary,Goestml-method}
-\alias{update,Goestml-method}
+\docType{class}
 
-\title{Class "Goestml": GO-GARCH  models estimated by Maximum-Likelihood}
+\alias{Goestnls-class}
+\alias{cvar,Goestnls-method}
+\alias{ccov,Goestnls-method}
+\alias{ccor,Goestnls-method}
+\alias{coef,Goestnls-method}
+\alias{converged,Goestnls-method}
+\alias{formula,Goestnls-method}
+\alias{goest,Goestnls-method}
+\alias{predict,Goestnls-method}
+\alias{residuals,Goestnls-method}
+\alias{show,Goestnls-method}
+\alias{summary,Goestnls-method}
+\alias{update,Goestnls-method}
 
-\description{This class contains the \code{GoGARCH} class and has the
-  outcome of \code{nlminb} as an additional slot.
+\title{Class "Goestnls": GO-GARCH models estimated by non-linear Least-Squares}
+
+\description{
+  This class contains the \code{GoGARCH} class and has the
+  outcome of \code{optim} as an additional slot.
 }
 
 \section{Objects from the Class}{
-Objects can be created by calls of the form \code{new("Goestml", ...)},
-or with the function \code{gogarch}.
+Objects can be created by calls of the form \code{new("Goestnls", ...)},
+or with the function \code{gogarch}. 
 }
 
 \section{Slots}{
 	 \describe{
-    \item{\code{opt}:}{Object of class \code{"list"}: List returned by
-	 \code{nlminb}.} 
+    \item{\code{nls}:}{Object of class \code{"list"}: List returned by
+	 \code{nlminb}.}
     \item{\code{Z}:}{Object of class \code{"matrix"}: Transformation matrix.}
     \item{\code{Y}:}{Object of class \code{"matrix"}: Extracted
 	 component matrix.}
@@ -61,32 +55,28 @@ or with the function \code{gogarch}.
       the original data object.}
   }
 }
-
 \section{Extends}{
 Class \code{"\linkS4class{GoGARCH}"}, directly.
 Class \code{"\linkS4class{Goinit}"}, by class "GoGARCH", distance 2.
 }
-
 \section{Methods}{
   \describe{
-    \item{angles}{Returns the Eulerian angles.}
     \item{cvar}{Returns the conditional variances.}
-    \item{ccor}{Returns the conditional correlations.}    
-    \item{ccov}{Returns the conditional covariances.}    
+    \item{ccov}{Returns the conditional co-variances.}
+    \item{ccor}{Returns the conditional correlations.}
     \item{coef}{Returns the coeffiecients of the component GARCH models.}
     \item{converged}{Returns the convergence codes of the component
-      GARCH models.}
+  GARCH models.}  
     \item{formula}{Returns the formula for the component GARCH models.}
-    \item{goest}{ML-Estimation of Go-GARCH models.}    
-    \item{logLik}{Returns the value of the log-Likelihood function.}
+    \item{goest}{NLS-Estimation of Go-GARCH models.}
     \item{predict}{Returns the conditional covariances and mean
   forecasts and the forecasts of the component GARCH models, object is
   of class \code{Gopredict}.}
     \item{residuals}{Returns the residuals of the component GARCH models.}
-    \item{show}{show-method for objects of class \code{Goestml}.}
-    \item{summary}{summary-method for objects of class \code{Goestml},
-  object is of class \code{Gosum}.}  
-    \item{update}{Updates an object of class \code{Goestml}.}
+    \item{show}{show-method for objects of class \code{Goestnls}.}
+    \item{summary}{summary-method for objects of class \code{GoGARCH},
+  object is of class \code{Gosum}.}
+    \item{update}{Updates an object of class \code{GoGARCH}.}
   }
 }
 
@@ -94,11 +84,11 @@ Class \code{"\linkS4class{Goinit}"}, by class "GoGARCH", distance 2.
   Bernhard Pfaff
 }
 
-
 \seealso{
   \code{\linkS4class{GoGARCH}}, \code{\linkS4class{Goinit}},
   \code{\linkS4class{Gosum}}, \code{\linkS4class{Gopredict}},
   \code{\link{goest-methods}}
 }
+
 
 \keyword{classes}
