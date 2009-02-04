@@ -1,5 +1,8 @@
 gogarch <- function(data, formula, scale = FALSE, method = c("ml", "nls"), initial = NULL, garchlist = list(init.rec = "mci", delta = 2, skew = 1, shape = 4, cond.dist = "norm", include.mean = FALSE, include.delta = NULL, include.skew = NULL, include.shape = NULL, leverage = NULL, trace = FALSE, algorithm = "nlminb", hessian = "ropt", control = list(), title = NULL, description = NULL), ...){
   method <- match.arg(method)
+  if(missing(garchlist)){
+    garchlist <- list(init.rec = "mci", delta = 2, skew = 1, shape = 4, cond.dist = "norm", include.mean = FALSE, include.delta = NULL, include.skew = NULL, include.shape = NULL, leverage = NULL, trace = FALSE, algorithm = "nlminb", hessian = "ropt", control = list(), title = NULL, description = NULL)
+  }
   Call <- match.call()
   d <- ncol(data)
   gini <- goinit(X = data, garchf = formula, scale = scale)
@@ -28,7 +31,7 @@ gogarch <- function(data, formula, scale = FALSE, method = c("ml", "nls"), initi
       }
     }
     goestnls <- new("Goestnls", gomod)
-    gogarch <- goest(object = goestnls, initial = initial, garchlist = garchlist, ...)
+    gogarch <- goest(goestnls, initial, garchlist, ...)
   }  
   gogarch@CALL <- Call
   gogarch@name <- deparse(substitute(data))

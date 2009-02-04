@@ -35,6 +35,7 @@ or with the function \code{gogarch}.
     \item{\code{nls}:}{Object of class \code{"list"}: List returned by
 	 \code{nlminb}.}
     \item{\code{Z}:}{Object of class \code{"matrix"}: Transformation matrix.}
+    \item{\code{U}:}{Object of class \code{"matrix"}: Orthonormal matrix.}
     \item{\code{Y}:}{Object of class \code{"matrix"}: Extracted
 	 component matrix.}
     \item{\code{H}:}{Object of class \code{"list"}: List of conditional

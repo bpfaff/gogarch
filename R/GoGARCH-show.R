@@ -12,12 +12,12 @@ setMethod(f = "show", signature(object = "GoGARCH"), definition = function(objec
   cat("\n")
   cat(paste("Formula for component GARCH models:", paste(as.character(object@garchf), collapse = " "), "\n"))
   cat("\n")  
-  if(length(object@Z) != 0){
-    cat("Linar Map Z:\n")
-    print(object@Z, quote = FALSE)
+  if(length(object@U) != 0){
+    cat("Orthonormal Matrix U:\n")
+    print(object@U)
     cat("\n")
-    cat("and its inverse:\n")
-    print(solve(object@Z), quote = FALSE)
+    cat("Linar Map Z:\n")
+    print(object@Z)
     cat("\n")
   }
   cat("Estimated GARCH coefficients:\n")   
