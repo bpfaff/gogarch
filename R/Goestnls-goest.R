@@ -1,11 +1,21 @@
 setMethod(f = "goest", signature(object = "Goestnls"), definition = function(object, initial, garchlist, ...){
+  d <- ncol(object@X)
+  if(is.null(initial)){
+    l <- d * (d + 1)/2
+    initial <- rep(0.1, l)
+  } else {
+    l <- length(initial)
+    if (l != d * (d + 1)/2) {
+      stop(paste("\nLength of initial vector does not match length of vech(B).\n", "It should have length: ", d * (d + 1)/2, sep = ""))
+    }
+  }
   X <- object@X
   m <- ncol(X)
   n <- nrow(X)
   Dsqr <- object@Dsqr
   Dsqri <- diag(1 / diag(Dsqr))
   P <- object@P
-  S <- X %*% P %*% Dsqri
+  S <- X %*% P %*% Dsqri 
   SSI <- list()
   length(SSI) <- n
   for(i in 1:n){

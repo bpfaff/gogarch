@@ -1,7 +1,7 @@
 gonls <-
 function(params, SSI){
   B <- unvech(params)
-  n <- length(SSI[[1]]) - 1
+  n <- length(SSI[[1]])
   fl <- list()
   length(fl) <- n
   for(i in 1:n){

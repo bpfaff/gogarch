@@ -20,6 +20,7 @@
 \section{Methods}{
   \describe{
     \item{goest}{\code{signature(object = "Goestml")}}
+    \item{goest}{\code{signature(object = "Goestnls")}}
   }
 }
 

@@ -11,7 +11,7 @@ exportClasses(Goestml, Goestnls, GoGARCH, Goinit, Gopredict, Gosum, Orthom)
 exportMethods(angles, cvar, ccor, ccov, coef, converged, formula, goest, logLik, M, predict, print, show, summary, t, residuals, update)
 
 ## Functions
-export(gogarch, goinit, gollh, gonls, gotheta, Rd2, UprodR, unvech, validOrthomObject, validGoinitObject)
+export(cora, gogarch, goinit, gollh, gonls, gotheta, Rd2, Umatch, UprodR, unvech, validOrthomObject, validGoinitObject)
 
 
 
