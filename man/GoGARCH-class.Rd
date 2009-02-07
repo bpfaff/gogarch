@@ -31,7 +31,7 @@
 \section{Slots}{
 	 \describe{
     \item{\code{Z}:}{Object of class \code{"matrix"}: Transformation matrix.}
-    \item{\code{U}:}{Object of class \code{"matrix"}: Orthonormal matrix.}
+    \item{\code{U}:}{Object of class \code{"Orthom"}: Orthonormal matrix.}
     \item{\code{Y}:}{Object of class \code{"matrix"}: Extracted
 	 component matrix.}
     \item{\code{H}:}{Object of class \code{"list"}: List of conditional

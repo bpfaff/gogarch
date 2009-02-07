@@ -1,5 +1,5 @@
 cora <- function(SSI, lag = 1){
-  lags <- abs(as.integer(lags))
+  lag <- abs(as.integer(lag))
   dims <- dim(SSI)
   Gamma <- matrix(0, nrow = dims[1], ncol = dims[2])
   SSIp <- array(dim = dims)
@@ -11,12 +11,12 @@ cora <- function(SSI, lag = 1){
   Gsvd <- svd(Gamma)
   Gsqrtinv <- Gsvd$u %*% diag(1/sqrt(Gsvd$d)) %*% t(Gsvd$u)
   idx <- 1:dims[3]
-  if(identical(lags, as.integer(0))){
+  if(identical(lag, as.integer(0))){
     idx1 <- idx
     idx2 <- idx
   } else {
-    idx1 <- idx[-c(1:lags)]
-    idx2 <- rev(rev(idx)[-c(1:lags)])
+    idx1 <- idx[-c(1:lag)]
+    idx2 <- rev(rev(idx)[-c(1:lag)])
   }
   nl <- length(idx1)
   Gamma <- matrix(0, nrow = dims[1], ncol = dims[2])

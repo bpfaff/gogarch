@@ -18,6 +18,7 @@
 \alias{coef,Goestml-method}
 \alias{converged,Goestml-method}
 \alias{formula,Goestml-method}
+\alias{goest,Goestml-method}
 \alias{logLik,Goestml-method}
 \alias{predict,Goestml-method}
 \alias{residuals,Goestml-method}
@@ -41,7 +42,7 @@ or with the function \code{gogarch}.
     \item{\code{opt}:}{Object of class \code{"list"}: List returned by
 	 \code{nlminb}.} 
     \item{\code{Z}:}{Object of class \code{"matrix"}: Transformation matrix.}
-    \item{\code{U}:}{Object of class \code{"matrix"}: Orthonormal matrix.}
+    \item{\code{U}:}{Object of class \code{"matrix"}: Orthogonal matrix.}
     \item{\code{Y}:}{Object of class \code{"matrix"}: Extracted
 	 component matrix.}
     \item{\code{H}:}{Object of class \code{"list"}: List of conditional

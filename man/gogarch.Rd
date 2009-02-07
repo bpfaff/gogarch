@@ -13,12 +13,12 @@
   models. 
 }
 \usage{
-gogarch(data, formula, scale = FALSE, method = c("ml", "nls"), initial = NULL,
-        garchlist = list(init.rec = "mci", delta = 2, skew = 1, shape =
-        4, cond.dist = "norm", include.mean = FALSE, include.delta = NULL, 
-        include.skew = NULL, include.shape = NULL, leverage = NULL, trace =
-        FALSE, algorithm = "nlminb", hessian = "ropt", control = list(), title
-        = NULL, description = NULL), ...) 
+gogarch(data, formula, scale = FALSE, method = c("mm", "ml", "nls"),
+  lag.max = 1, initial = NULL, garchlist = list(init.rec = "mci", delta
+  = 2, skew = 1, shape = 4, cond.dist = "norm", include.mean = FALSE,
+  include.delta = NULL, include.skew = NULL, include.shape = NULL,
+  leverage = NULL, trace = FALSE, algorithm = "nlminb", hessian =
+  "ropt", control = list(), title = NULL, description = NULL), ...) 
 }
 
 \arguments{
@@ -26,9 +26,15 @@ gogarch(data, formula, scale = FALSE, method = c("ml", "nls"), initial = NULL,
   \item{formula}{Formula: valid formula for univariate GARCH models.}
   \item{scale}{Logical, if \code{TRUE} the data is scaled. The default
   is \code{scale = FALSE}.}
-  \item{method}{Character: by Maximum-Likelihood \code{method = "ml"} or by non-linear
-  Least-Squares \code{method = "nls"}.}
-  \item{initial}{Numeric: starting values for Euler angles (see Details).}
+  \item{method}{Character: by Methods of Moments \code{method = "mm"}
+  (the default) or by Maximum-Likelihood \code{method = "ml"} or by
+  non-linear Least-Squares \code{method = "nls"}.}
+  \item{initial}{Numeric: starting values for optimization (used if
+  \code{method = "ml"} or \code{method = "nls"} has been chosen (see
+  Details).}
+  \item{lag.max}{Integer: The number of used lags for computing the
+    matched orthogonal matrices \eqn{U} (used if \code{method = "mm"}
+    has been chosen).}
   \item{garchlist}{List: Elements are passed to \code{garchFit}.}
   \item{\dots}{Ellipsis argument: is passed to \code{nlminb}.}
 }
@@ -36,20 +42,32 @@ gogarch(data, formula, scale = FALSE, method = c("ml", "nls"), initial = NULL,
 \details{
 If the argument \code{initial} is left \code{NULL}, the starting values
 are computed according \code{seq(3.0, 0.1, length.out = l)}, whereby
-\code{l} is the length of \code{initial}. This length must be equal to
-\eqn{m * (m - 1)/2}, whereby \eqn{m} is the number of columns of
-\code{data}.  
+\code{l} is the length of \code{initial} for \code{method = "ml"} and
+are set to \code{rep(0.1, d}, whereby \code{} for \code{method =
+  "nls"}. This length must be equal to \eqn{m * (m - 1)/2} for
+estimation by Maximum-Likelihood and \eqn{m * (m + 1)/2} for estimation
+by Non-linear Least-Squares, whereby \eqn{m} is the number of columns of
+\code{data}.   
 }
 
 \value{
-  An object of class \code{Goestml} is returned which extends the
-  \code{GoGARCH} class.
+  Dependent on the chosen estimation method either an object of class
+  \code{Goestmm} or \code{Goestml} or \code{Goestnls} is returned. All of
+  these classes extend the \code{GoGARCH} class.
 }
 
 \references{
   Van der Weide, Roy (2002), GO-GARCH: A Multivariate Generalized
   Orthogonal GARCH Model, \emph{Journal of Applied Econometrics},
   \bold{17(5)}, 549 -- 564.
+  
+  Boswijk, H. Peter and van der Weide, Roy (2006), Wake me up before
+  you GO-GARCH, \emph{Tinbergen Institute Discussion Paper}, \bold{TI
+  2006-079/4}, University of Amsterdam and Tinbergen Institute. 
+
+  Boswijk, H. Peter and van der Weide, Roy (2009), Method of Moments
+  Estimation of GO-GARCH Models, \emph{Working Paper}, University of
+  Amsterdam, Tinbergen Institute and World Bank.
 }
 
 \author{

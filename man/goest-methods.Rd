@@ -6,8 +6,6 @@
 
 \alias{goest-methods}
 
-\alias{goest,Goestml-method}
-
 \alias{goest}
 
 \title{Methods for Function goest}
@@ -19,15 +17,15 @@
 
 \section{Methods}{
   \describe{
+    \item{goest}{\code{signature(object = "Goestmm")}}
     \item{goest}{\code{signature(object = "Goestml")}}
     \item{goest}{\code{signature(object = "Goestnls")}}
   }
 }
 
 \details{
-  The starting values for the Euler angles are provided in the argument
-  \code{initial} and the list \code{garchlist} contains the elements
-  that are passed \code{garchFit}. 
+  The declared estimation methods are called from function
+  \code{gogarch}.  
 }
 
 \author{
@@ -35,7 +33,9 @@
 }
 
 \seealso{
-  \code{\link[fGarch]{garchFit}}, \code{\linkS4class{Goestml}}
+  \code{\link[fGarch]{garchFit}}, \code{\linkS4class{Goestml}},
+  \code{\linkS4class{Goestnls}}, \code{\linkS4class{Goestmm}},
+  \code{\link{gogarch}}
 }
 
 \keyword{methods}

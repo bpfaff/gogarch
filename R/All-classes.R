@@ -1,4 +1,8 @@
 ##
+## Class definition of orthogonal matrices
+##
+setClass(Class = "Orthom", representation(M = "matrix"))
+##
 ## Class definition of initial GO-GARCH objects
 ##
 setClass(Class = "Goinit", representation(X = "matrix", V = "matrix", P = "matrix", Dsqr = "matrix", garchf = "formula", name = "character"))
@@ -11,9 +15,13 @@ setClass(Class = "GoGARCH", representation(Z = "matrix", U = "matrix", Y = "matr
 ##
 setClass(Class = "Goestml", representation(opt = "list"), contains = "GoGARCH")
 ##
-## Class definition of GO-GARCH objects, estimated by Maximum-Likelihood
+## Class definition of GO-GARCH objects, estimated by Non-linear Least-Squares
 ##
 setClass(Class = "Goestnls", representation(nls = "list"), contains = "GoGARCH")
+##
+## Class definition of GO-GARCH objects, estimated by Methods of Moments
+##
+setClass(Class = "Goestmm", representation(weights = "numeric", Umatched = "list"), contains = "GoGARCH")
 ##
 ## Class definition for summary objects from GoGARCH
 ##
@@ -22,9 +30,5 @@ setClass(Class = "Gosum", representation(name = "character", method = "character
 ## Class definition for predict objects from GoGARCH
 ##
 setClass(Class = "Gopredict", representation(Hf = "list", Xf = "matrix", CGARCHF = "list"))
-##
-## Class definition of orthogonal matrices
-##
-setClass(Class = "Orthom", representation(M = "matrix"))
 
 

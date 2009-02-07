@@ -1,39 +1,32 @@
-\name{Goestnls-class}
+\name{Goestmm-class}
 
 \encoding{latin1}
 
 \docType{class}
 
-\alias{Goestnls-class}
-\alias{cvar,Goestnls-method}
-\alias{ccov,Goestnls-method}
-\alias{ccor,Goestnls-method}
-\alias{coef,Goestnls-method}
-\alias{converged,Goestnls-method}
-\alias{formula,Goestnls-method}
-\alias{goest,Goestnls-method}
-\alias{predict,Goestnls-method}
-\alias{residuals,Goestnls-method}
-\alias{show,Goestnls-method}
-\alias{summary,Goestnls-method}
-\alias{update,Goestnls-method}
+\alias{Goestmm-class}
+\alias{show,Goestmm-method}
+\alias{goest,Goestmm-method}
 
-\title{Class "Goestnls": GO-GARCH models estimated by Non-linear Least-Squares}
+\title{Class "Goestmm": Go-GARCH models estimated by Methods of Moments}
 
 \description{
-  This class contains the \code{GoGARCH} class and has the
-  outcome of \code{optim} as an additional slot.
+  This class contains the \code{GoGARCH} class and has the weights
+  vector and the matched orthogonal matrices \eqn{U} as additional
+  slots.
 }
 
 \section{Objects from the Class}{
-  Objects can be created by calls of the form \code{new("Goestnls", ...)}, 
+  Objects can be created by calls of the form \code{new("Goestmm", ...)},
   or with the function \code{gogarch}. 
 }
 
 \section{Slots}{
   \describe{
-    \item{\code{nls}:}{Object of class \code{"list"}: List returned by
-	 \code{nlminb}.}
+    \item{\code{weights}:}{Object of class \code{"numeric"}: Weights for
+  aggregating the matched orthogonal matrices \eqn{U}.}
+    \item{\code{Umatched}:}{Object of class \code{"list"}: List of
+  matched orthogonal matrices \eqn{U}.}
     \item{\code{Z}:}{Object of class \code{"matrix"}: Transformation matrix.}
     \item{\code{U}:}{Object of class \code{"matrix"}: Orthogonal matrix.}
     \item{\code{Y}:}{Object of class \code{"matrix"}: Extracted
@@ -61,25 +54,18 @@
 Class \code{"\linkS4class{GoGARCH}"}, directly.
 Class \code{"\linkS4class{Goinit}"}, by class "GoGARCH", distance 2.
 }
+
 \section{Methods}{
   \describe{
-    \item{cvar}{Returns the conditional variances.}
-    \item{ccov}{Returns the conditional co-variances.}
-    \item{ccor}{Returns the conditional correlations.}
-    \item{coef}{Returns the coeffiecients of the component GARCH models.}
-    \item{converged}{Returns the convergence codes of the component
-  GARCH models.}  
-    \item{formula}{Returns the formula for the component GARCH models.}
-    \item{goest}{NLS-Estimation of Go-GARCH models.}
-    \item{predict}{Returns the conditional covariances and mean
-  forecasts and the forecasts of the component GARCH models, object is
-  of class \code{Gopredict}.}
-    \item{residuals}{Returns the residuals of the component GARCH models.}
+    \item{goest}{Methods of moments estimation of Go-GARCH models.}
     \item{show}{show-method for objects of class \code{Goestnls}.}
-    \item{summary}{summary-method for objects of class \code{GoGARCH},
-  object is of class \code{Gosum}.}
-    \item{update}{Updates an object of class \code{GoGARCH}.}
   }
+}
+
+\references{
+  Boswijk, H. Peter and van der Weide, Roy (2009), Method of Moments
+  Estimation of GO-GARCH Models, \emph{Working Paper}, University of
+  Amsterdam, Tinbergen Institute and World Bank.
 }
 
 \author{
@@ -89,8 +75,8 @@ Class \code{"\linkS4class{Goinit}"}, by class "GoGARCH", distance 2.
 \seealso{
   \code{\linkS4class{GoGARCH}}, \code{\linkS4class{Goinit}},
   \code{\linkS4class{Gosum}}, \code{\linkS4class{Gopredict}},
-  \code{\link{goest-methods}}, \code{\link{gogarch}}
+  \code{\link{goest-methods}}, \code{\link{gogarch}},
+  \code{\link{Umatch}}
 }
-
 
 \keyword{classes}

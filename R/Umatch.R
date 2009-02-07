@@ -1,8 +1,12 @@
 Umatch <- function(from, to){
   cols <- ncol(from)
-  mat <- matrix(0, nrow = cols, ncol = cols) 
-  for(i in 1:cols){
-    inner <- colSums(to * as.vector(from[, i]))
+  mat <- matrix(0, nrow = cols, ncol = cols)
+  inner <- abs(colSums(from[, 1] * to))
+  maxcol <- which.max(inner)
+  mat[, 1] <- to[, maxcol]
+  to <- as.matrix(to[, -maxcol])
+  for(i in 2:cols){
+    inner <- abs(colSums(from[, i] * to))
     maxcol <- which.max(inner)
     mat[, i] <- to[, maxcol]
     to <- as.matrix(to[, -maxcol])

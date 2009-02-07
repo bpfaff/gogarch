@@ -5,7 +5,7 @@ import(methods)
 importFrom(stats, coef, formula, logLik, predict, residuals, update)
 
 ## Classes       
-exportClasses(Goestml, Goestnls, GoGARCH, Goinit, Gopredict, Gosum, Orthom)
+exportClasses(Goestml, Goestmm, Goestnls, GoGARCH, Goinit, Gopredict, Gosum, Orthom)
 
 ## Methods
 exportMethods(angles, cvar, ccor, ccov, coef, converged, formula, goest, logLik, M, predict, print, show, summary, t, residuals, update)
