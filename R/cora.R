@@ -1,4 +1,4 @@
-cora <- function(SSI, lag = 1){
+cora <- function(SSI, lag = 1, standardize = TRUE){
   lag <- abs(as.integer(lag))
   dims <- dim(SSI)
   Gamma <- matrix(0, nrow = dims[1], ncol = dims[2])
@@ -26,7 +26,11 @@ cora <- function(SSI, lag = 1){
     Gamma <- Gamma + SSIc[, , i]
   }
   Gamma <- Gamma / nl
-  cora <- Gsqrtinv %*% Gamma %*% Gsqrtinv
+  if(standardize){
+    cora <- Gsqrtinv %*% Gamma %*% Gsqrtinv
+  } else {
+    cora <- Gamma
+  }
   cora <- (cora + t(cora)) / 2
   return(cora)
 }

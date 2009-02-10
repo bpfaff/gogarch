@@ -13,7 +13,7 @@ setMethod(f = "show", signature(object = "GoGARCH"), definition = function(objec
   cat(paste("Formula for component GARCH models:", paste(as.character(object@garchf), collapse = " "), "\n"))
   cat("\n")  
   if(length(object@U) != 0){
-    cat("Orthonormal Matrix U:\n")
+    cat("Orthogonal Matrix U:\n")
     print(object@U)
     cat("\n")
     cat("Linar Map Z:\n")

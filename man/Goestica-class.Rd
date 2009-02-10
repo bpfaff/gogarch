@@ -1,29 +1,28 @@
-\name{Goestmm-class}
+\name{Goestica-class}
 
 \encoding{latin1}
 
 \docType{class}
 
-\alias{Goestmm-class}
-\alias{cvar,Goestmm-method}
-\alias{ccor,Goestmm-method}
-\alias{ccov,Goestmm-method}
-\alias{coef,Goestmm-method}
-\alias{converged,Goestmm-method}
-\alias{formula,Goestmm-method}
-\alias{goest,Goestmm-method}
-\alias{predict,Goestmm-method}
-\alias{residuals,Goestmm-method}
-\alias{show,Goestmm-method}
-\alias{summary,Goestmm-method}
-\alias{update,Goestmm-method}
+\alias{Goestica-class}
+\alias{cvar,Goestica-method}
+\alias{ccor,Goestica-method}
+\alias{ccov,Goestica-method}
+\alias{coef,Goestica-method}
+\alias{converged,Goestica-method}
+\alias{formula,Goestica-method}
+\alias{goest,Goestica-method}
+\alias{predict,Goestica-method}
+\alias{residuals,Goestica-method}
+\alias{show,Goestica-method}
+\alias{summary,Goestica-method}
+\alias{update,Goestica-method}
 
-\title{Class "Goestmm": Go-GARCH models estimated by Methods of Moments}
+\title{Class "Goestica": GO-GARCH models estimated by fast ICA}
 
 \description{
-  This class contains the \code{GoGARCH} class and has the weights
-  vector and the matched orthogonal matrices \eqn{U} as additional
-  slots.
+  This class contains the \code{GoGARCH} class and has the mixing matrix
+  \eqn{A} as additional slot.
 }
 
 \section{Objects from the Class}{
@@ -32,11 +31,9 @@
 }
 
 \section{Slots}{
-  \describe{
-    \item{\code{weights}:}{Object of class \code{"numeric"}: Weights for
-  aggregating the matched orthogonal matrices \eqn{U}.}
-    \item{\code{Umatched}:}{Object of class \code{"list"}: List of
-  matched orthogonal matrices \eqn{U}.}
+	 \describe{
+    \item{\code{ica}:}{Object of class \code{"list"}: List object
+	 returned by \code{fastICA}.}
     \item{\code{Z}:}{Object of class \code{"matrix"}: Transformation matrix.}
     \item{\code{U}:}{Object of class \code{"matrix"}: Orthogonal matrix.}
     \item{\code{Y}:}{Object of class \code{"matrix"}: Extracted
@@ -74,7 +71,7 @@ Class \code{"\linkS4class{Goinit}"}, by class "GoGARCH", distance 2.
     \item{converged}{Returns the convergence codes of the component
       GARCH models.}
     \item{formula}{Returns the formula for the component GARCH models.}
-    \item{goest}{Methods of moments estimation of Go-GARCH models.}
+    \item{goest}{Fast ICA estimation of Go-GARCH models.}
     \item{predict}{Returns the conditional covariances and mean
   forecasts and the forecasts of the component GARCH models, object is
   of class \code{Gopredict}.}
@@ -87,9 +84,9 @@ Class \code{"\linkS4class{Goinit}"}, by class "GoGARCH", distance 2.
 }
 
 \references{
-  Boswijk, H. Peter and van der Weide, Roy (2009), Method of Moments
-  Estimation of GO-GARCH Models, \emph{Working Paper}, University of
-  Amsterdam, Tinbergen Institute and World Bank.
+  Broda, S.A. and Paolella, M.S. (2008): CHICAGO: A Fast and Accurate
+  Method for Portfolio Risk Calculation, \emph{Swiss Finance Institute},
+  Research Paper Series No. 08-08, Zuerich.
 }
 
 \author{
@@ -99,8 +96,7 @@ Class \code{"\linkS4class{Goinit}"}, by class "GoGARCH", distance 2.
 \seealso{
   \code{\linkS4class{GoGARCH}}, \code{\linkS4class{Goinit}},
   \code{\linkS4class{Gosum}}, \code{\linkS4class{Gopredict}},
-  \code{\link{goest-methods}}, \code{\link{gogarch}},
-  \code{\link{Umatch}}
+  \code{\link{goest-methods}} and \code{\link{gogarch}}
 }
 
 \keyword{classes}

@@ -13,7 +13,7 @@
   models. 
 }
 \usage{
-gogarch(data, formula, scale = FALSE, method = c("mm", "ml", "nls"),
+gogarch(data, formula, scale = FALSE, method = c("ica", "mm", "ml", "nls"),
   lag.max = 1, initial = NULL, garchlist = list(init.rec = "mci", delta
   = 2, skew = 1, shape = 4, cond.dist = "norm", include.mean = FALSE,
   include.delta = NULL, include.skew = NULL, include.shape = NULL,
@@ -26,9 +26,10 @@ gogarch(data, formula, scale = FALSE, method = c("mm", "ml", "nls"),
   \item{formula}{Formula: valid formula for univariate GARCH models.}
   \item{scale}{Logical, if \code{TRUE} the data is scaled. The default
   is \code{scale = FALSE}.}
-  \item{method}{Character: by Methods of Moments \code{method = "mm"}
-  (the default) or by Maximum-Likelihood \code{method = "ml"} or by
-  non-linear Least-Squares \code{method = "nls"}.}
+  \item{method}{Character: by fast ICA \code{method = "ica"} (the
+  default), by Methods of Moments \code{method = "mm"} or by
+  Maximum-Likelihood \code{method = "ml"} or by non-linear Least-Squares
+  \code{method = "nls"}.} 
   \item{initial}{Numeric: starting values for optimization (used if
   \code{method = "ml"} or \code{method = "nls"} has been chosen (see
   Details).}
@@ -68,6 +69,10 @@ by Non-linear Least-Squares, whereby \eqn{m} is the number of columns of
   Boswijk, H. Peter and van der Weide, Roy (2009), Method of Moments
   Estimation of GO-GARCH Models, \emph{Working Paper}, University of
   Amsterdam, Tinbergen Institute and World Bank.
+
+  Broda, S.A. and Paolella, M.S. (2008): CHICAGO: A Fast and Accurate
+  Method for Portfolio Risk Calculation, \emph{Swiss Finance Institute},
+  Research Paper Series No. 08-08, Zuerich.  
 }
 
 \author{

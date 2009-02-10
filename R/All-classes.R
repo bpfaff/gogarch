@@ -11,6 +11,10 @@ setClass(Class = "Goinit", representation(X = "matrix", V = "matrix", P = "matri
 ##
 setClass(Class = "GoGARCH", representation(Z = "matrix", U = "matrix", Y = "matrix", H = "list", models = "list", estby = "character", CALL = "call"), contains = "Goinit")
 ##
+## Class definition of GO-GARCH objects, estimated by ICA
+##
+setClass(Class = "Goestica", representation(ica = "list"), contains = "GoGARCH")
+##
 ## Class definition of GO-GARCH objects, estimated by Maximum-Likelihood
 ##
 setClass(Class = "Goestml", representation(opt = "list"), contains = "GoGARCH")

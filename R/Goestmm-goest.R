@@ -6,8 +6,8 @@ setMethod(f = "goest", signature(object = "Goestmm"), definition = function(obje
   P <- object@P
   Id <- diag(m)
   Dsqr <- object@Dsqr
-  Dsqri <- diag(1 / diag(Dsqr))
-  Sinv <- P %*% Dsqri %*% t(P)
+  S <- P %*% Dsqr %*% t(P)
+  Sinv <- solve(S)
   S <- X %*% Sinv
   if(lag.max < 1){
     U <- Id
@@ -19,32 +19,24 @@ setMethod(f = "goest", signature(object = "Goestmm"), definition = function(obje
       SSI[, , i] <- S[i, ] %*% t(S[i, ]) - diag(m)
     }
     Phil <- lapply(1:lag.max, function(x) cora(SSI, lag = x))
-    svd <- lapply(Phil, function(x) svd(x))
+    svd <- lapply(Phil, function(x) eigen(x, symmetric = TRUE))
     evmin <- unlist(lapply(svd, function(x){
       sel <- combn(1:m, 2)
-      diffs2 <- (x$d[sel[1, ]] - x$d[sel[2, ]])^2
+      diffs2 <- (x$values[sel[1, ]] - x$values[sel[2, ]])^2
       min(diffs2)
     }))
     denom <- sum(evmin)
     weights <- evmin / denom
-    Ul <- lapply(svd, function(x) x$u)
+    Ul <- lapply(svd, function(x) x$vectors)
     Ul[[1]] <- Umatch(Id, Ul[[1]])
     Sm <- matrix(0, nrow = m, ncol = m)
     for(i in 1:lag.max){
       Ul[[i]] <- Umatch(Ul[[1]], Ul[[i]])
-      mp <- Id + Ul[[i]]
-      mpsvd <- svd(mp)
-      mpinv <- mpsvd$u %*% diag(1/mpsvd$d) %*% t(mpsvd$u)
-      mm <- Id - Ul[[i]]
-      mmprod <- weights[i] * mm %*% mpinv
+      mmprod <- weights[i] * (Id - Ul[[i]]) %*% solve(Id + Ul[[i]])
       Sm <- Sm + mmprod
     }
     Umatched <- Ul
-    mp <- Id + Sm
-    mpsvd <- svd(mp)
-    mpinv <- mpsvd$u %*% diag(1/mpsvd$d) %*% t(mpsvd$u)
-    mm <- Id - Sm
-    U <- mm %*% mpinv
+    U <- (Id - Sm) %*% solve(Id + Sm)
   }
   Y <- S %*% U
   Z <- P %*% Dsqr %*% t(P) %*% t(U)

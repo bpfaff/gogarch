@@ -15,11 +15,15 @@
 }
 
 \usage{
-cora(SSI, lag = 1)
+cora(SSI, lag = 1, standardize = TRUE)
 }
 \arguments{
   \item{SSI}{Array with dimension \code{dim = c(m, m, n)}}
-  \item{lag}{Integer, the lag for which the autocorrelation is computed.}
+  \item{lag}{Integer, the lag for which the autocorrelation is
+    computed.}
+  \item{standardize}{Logical, if \code{TRUE} (the default), the
+    autocorrelation matrix is computed, otherwise the autocovariance
+    matrix.}   
 }
 
 \details{
