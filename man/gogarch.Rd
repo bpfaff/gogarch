@@ -37,24 +37,32 @@ gogarch(data, formula, scale = FALSE, method = c("ica", "mm", "ml", "nls"),
     matched orthogonal matrices \eqn{U} (used if \code{method = "mm"}
     has been chosen).}
   \item{garchlist}{List: Elements are passed to \code{garchFit}.}
-  \item{\dots}{Ellipsis argument: is passed to \code{nlminb}.}
+  \item{\dots}{Ellipsis argument: is passed to the function for
+  determining the components (see details).}
 }
 
 \details{
-If the argument \code{initial} is left \code{NULL}, the starting values
-are computed according \code{seq(3.0, 0.1, length.out = l)}, whereby
-\code{l} is the length of \code{initial} for \code{method = "ml"} and
-are set to \code{rep(0.1, d}, whereby \code{} for \code{method =
-  "nls"}. This length must be equal to \eqn{m * (m - 1)/2} for
-estimation by Maximum-Likelihood and \eqn{m * (m + 1)/2} for estimation
-by Non-linear Least-Squares, whereby \eqn{m} is the number of columns of
-\code{data}.   
+  The ellipsis argument is passed to the function \code{fastICA} if
+  \code{method = "ica"} has been set, or to \code{optim} if \code{method
+  = "nls"} is employed or to \code{nlminb} if the GO-GARCH model is
+  estimated by maximum likelihood, \emph{i.e.}, \code{method = "ml"}. It
+  is not employed if the methods of moments estimator is chosen.\cr
+
+  If the argument \code{initial} is left \code{NULL}, the starting
+  values are computed according \code{seq(3.0, 0.1, length.out = l)},
+  whereby \code{l} is the length of \code{initial} for \code{method =
+  "ml"} and are set to \code{rep(0.1, d}, whereby \code{} for
+  \code{method = "nls"}. This length must be equal to \eqn{m * (m -
+  1)/2} for estimation by Maximum-Likelihood and \eqn{m * (m + 1)/2} for
+  estimation by non-linear least-Squares, whereby \eqn{m} is the number
+  of columns of \code{data}.   
 }
 
 \value{
   Dependent on the chosen estimation method either an object of class
-  \code{Goestmm} or \code{Goestml} or \code{Goestnls} is returned. All of
-  these classes extend the \code{GoGARCH} class.
+  \code{Goestica} or, \code{Goestmm} or \code{Goestml} or
+  \code{Goestnls} is returned. All of these classes extend the
+  \code{GoGARCH} class. 
 }
 
 \references{
@@ -80,15 +88,36 @@ by Non-linear Least-Squares, whereby \eqn{m} is the number of columns of
 }
 
 \seealso{
-  \code{\linkS4class{GoGARCH}}, \code{\linkS4class{Goestml}}, \code{\link{goest-methods}}
+  \code{\linkS4class{GoGARCH}}, \code{\linkS4class{Goestica}},
+  \code{\linkS4class{Goestmm}}, \code{\linkS4class{Goestnls}},
+  \code{\linkS4class{Goestml}}, \code{\link{goest-methods}}
 }
+
 \examples{
 \dontrun{
 library(vars)
+## Boswijk / van der Weide (2009)
+data(BVDWSTOXX)
+BVDWSTOXX <- zoo(x = BVDWSTOXX[, -1], order.by = BVDWSTOXX[, 1])
+BVDWSTOXX <- window(BVDWSTOXX, end = as.POSIXct("2007-12-31"))
+BVDWSTOXX <- diff(log(BVDWSTOXX))
+sectors <- BVDWSTOXX[, c("AutoParts", "Banks", "OilGas")]
+sectors <- apply(sectors, 2, scale, scale = FALSE)
+gogmm <- gogarch(sectors, formula = ~garch(1,1), method = "mm", lag.max = 100)
+gogmm
+## Boswijk / van der Weide (2006)
+data(BVDW)
+BVDW <- zoo(x = BVDW[, -1], order.by = BVDW[, 1])
+BVDW <- diff(log(BVDW)) * 100
+gognls <- gogarch(BVDW, formula = ~garch(1,1), scale = TRUE, method = "nls")
+gognls
+## van der Weide (2002)
 data(VDW)
 var1 <- VAR(scale(VDW), p = 1, type = "const")
-resid <- scale(residuals(var1))
-gogarch(resid, ~garch(1, 1))
+resid <- residuals(var1)
+gogml <- gogarch(resid, ~garch(1, 1), scale = TRUE, method = "ml", control = list(iter.max = 1000))
+gogml
+solve(gogml@Z)
 }
 }
 

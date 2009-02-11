@@ -1,3 +1,11 @@
+##
+## Methods for obtaining predictions from GO-GARCH models
+## ======================================================
+##
+## Method definition for objects of class "GoGARCH"
+## The method "predict" returns an object of class "Gopredict" for
+## which a "show" method exists.
+##
 setMethod(f = "predict", signature(object = "GoGARCH"), definition = function(object, n.ahead = 10, ...){
   n.ahead <- abs(as.integer(n.ahead))
   m <- ncol(object@X)
@@ -16,19 +24,31 @@ setMethod(f = "predict", signature(object = "GoGARCH"), definition = function(ob
   fcst <- new("Gopredict", Hf = H.pred.x, Xf = mean.pred.x, CGARCHF = predictions)
   return(fcst)
 })
-
+##
+## Method definition for objects of class "Goestica"
+## "Goestica" extends directly "GoGARCH"
+##
 setMethod(f = "predict", signature(object = "Goestica"), definition = function(object, n.ahead = 10, ...){
   callNextMethod()
 })
-
+##
+## Method definition for objects of class "Goestmm"
+## "Goestmm" extends directly "GoGARCH"
+##
 setMethod(f = "predict", signature(object = "Goestmm"), definition = function(object, n.ahead = 10, ...){
   callNextMethod()
 })
-
+##
+## Method definition for objects of class "Goestnls"
+## "Goestnls" extends directly "GoGARCH"
+##
 setMethod(f = "predict", signature(object = "Goestnls"), definition = function(object, n.ahead = 10, ...){
   callNextMethod()
 })
-
+##
+## Method definition for objects of class "Goestml"
+## "Goestml" extends directly "GoGARCH"
+##
 setMethod(f = "predict", signature(object = "Goestml"), definition = function(object, n.ahead = 10, ...){
   callNextMethod()
 })

@@ -1,3 +1,9 @@
+##
+## Methods for showing S4-class objects
+## ====================================
+##
+## Method definition for objects of class "GoGARCH"
+##
 setMethod(f = "show", signature(object = "GoGARCH"), definition = function(object){
   title <- "*** GO-GARCH ***"
   stars <- paste(rep("*", nchar(title)), collapse = "")
@@ -27,25 +33,41 @@ setMethod(f = "show", signature(object = "GoGARCH"), definition = function(objec
   print(converged(object))
   invisible(object)
 })
-
+##
+## Method definition for objects of class "Goestica"
+## "Goestica" extends directly "GoGARCH"
+##
 setMethod(f = "show", signature(object = "Goestica"), definition = function(object){
   callNextMethod()
 })
-
+##
+## Method definition for objects of class "Goestmm"
+## "Goestmm" extends directly "GoGARCH"
+##
 setMethod(f = "show", signature(object = "Goestmm"), definition = function(object){
   callNextMethod()
 })
-
+##
+## Method definition for objects of class "Goestnls"
+## "Goestnls" extends directly "GoGARCH"
+##
 setMethod(f = "show", signature(object = "Goestnls"), definition = function(object){
   callNextMethod()
 })
-
+##
+## Method definition for objects of class "Goestml"
+## "Goestml" extends directly "GoGARCH"
+##
 setMethod(f = "show", signature(object = "Goestml"), definition = function(object){
   callNextMethod()
 })
-
+##
+## Method definition for objects of class "Orthom"
+##
 setMethod(f = "show", signature(object = "Orthom"), function(object) print(object@M))
-
+##
+## Method definition for objects of class "Gosum"
+##
 setMethod(f = "show", signature(object = "Gosum"), definition = function(object){
   title <- "*** Summary of GO-GARCH Model ***"
   stars <- paste(rep("*", nchar(title)), collapse = "")
@@ -82,7 +104,9 @@ setMethod(f = "show", signature(object = "Gosum"), definition = function(object)
   }
   invisible(object)
 })
-
+##
+## Method definition for objects of class "Gopredict"
+##
 setMethod(f = "show", signature = "Gopredict", function(object){
   title <- "*** Forecasts of GO-GARCH Model ***"
   stars <- paste(rep("*", nchar(title)), collapse = "")
@@ -109,7 +133,9 @@ setMethod(f = "show", signature = "Gopredict", function(object){
     cat("\n")    
   } 
 })
-
+##
+## Method definition for objects of class "Goinit"
+##
 setMethod(f = "show", signature = "Goinit", function(object){
   title <- "*** Object of class Goinit ***"
   stars <- paste(rep("*", nchar(title)), collapse = "")

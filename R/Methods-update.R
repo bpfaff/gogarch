@@ -1,3 +1,9 @@
+##
+## Methods for updating an existing object
+## =======================================
+##
+## Method definition for objects of class "GoGARCH"
+##
 setMethod("update", signature(object = "GoGARCH"), function(object, formula.,..., evaluate = TRUE){
   call <- object@CALL
   extras <- match.call(expand.dots = FALSE)$...
@@ -15,7 +21,10 @@ setMethod("update", signature(object = "GoGARCH"), function(object, formula.,...
     eval(call, parent.frame())
   else call
 })
-
+##
+## Method definition for objects of class "Goestica"
+## "Goestica" extends directly "GoGARCH"
+##
 setMethod("update", signature(object = "Goestica"), function(object, formula., ..., evaluate = TRUE){
   call <- object@CALL
   extras <- match.call(expand.dots = FALSE)$...
@@ -33,7 +42,10 @@ setMethod("update", signature(object = "Goestica"), function(object, formula., .
     eval(call, parent.frame())
   else call
 }) 
-
+##
+## Method definition for objects of class "Goestmm"
+## "Goestmm" extends directly "GoGARCH"
+##
 setMethod("update", signature(object = "Goestmm"), function(object, formula., ..., evaluate = TRUE){
   call <- object@CALL
   extras <- match.call(expand.dots = FALSE)$...
@@ -51,7 +63,10 @@ setMethod("update", signature(object = "Goestmm"), function(object, formula., ..
     eval(call, parent.frame())
   else call
 }) 
-
+##
+## Method definition for objects of class "Goestnls"
+## "Goestnls" extends directly "GoGARCH"
+##
 setMethod("update", signature(object = "Goestnls"), function(object, formula., ..., evaluate = TRUE){
   call <- object@CALL
   extras <- match.call(expand.dots = FALSE)$...
@@ -69,7 +84,10 @@ setMethod("update", signature(object = "Goestnls"), function(object, formula., .
     eval(call, parent.frame())
   else call
 }) 
-
+##
+## Method definition for objects of class "Goestml"
+## "Goestml" extends directly "GoGARCH"
+##
 setMethod("update", signature(object = "Goestml"), function(object, formula., ..., evaluate = TRUE){
   call <- object@CALL
   extras <- match.call(expand.dots = FALSE)$...

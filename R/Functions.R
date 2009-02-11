@@ -1,4 +1,25 @@
-gogarch <- function(data, formula, scale = FALSE, method = c("ica", "mm", "ml", "nls"), lag.max = 1, initial = NULL, garchlist = list(init.rec = "mci", delta = 2, skew = 1, shape = 4, cond.dist = "norm", include.mean = FALSE, include.delta = NULL, include.skew = NULL, include.shape = NULL, leverage = NULL, trace = FALSE, algorithm = "nlminb", hessian = "ropt", control = list(), title = NULL, description = NULL), ...){
+##
+## This file includes the following functions:
+## ===========================================
+##
+## gogarch
+## Umatch
+## UprodR
+## Rd2
+## cora
+## goinit
+## gollh
+## gonls
+## gotheta
+## unvech
+##
+## ============================================
+##
+##
+## gogarch: main function for estimating GO-GARCH models
+##
+gogarch <-
+function(data, formula, scale = FALSE, method = c("ica", "mm", "ml", "nls"), lag.max = 1, initial = NULL, garchlist = list(init.rec = "mci", delta = 2, skew = 1, shape = 4, cond.dist = "norm", include.mean = FALSE, include.delta = NULL, include.skew = NULL, include.shape = NULL, leverage = NULL, trace = FALSE, algorithm = "nlminb", hessian = "ropt", control = list(), title = NULL, description = NULL), ...){
   method <- match.arg(method)
   Call <- match.call()
   gini <- goinit(X = data, garchf = formula, scale = scale)
@@ -23,8 +44,12 @@ gogarch <- function(data, formula, scale = FALSE, method = c("ica", "mm", "ml", 
   gogarch@name <- deparse(substitute(data))
   return(gogarch)
 }
-
-Umatch <- function(from, to){
+##
+## Umatch: Matching of orthogonal matrices. This function is employed  
+## whence GO-GARCH models are estimated by methods of moments
+##
+Umatch <-
+function(from, to){
   cols <- ncol(from)
   mat <- matrix(0, nrow = cols, ncol = cols)
   for(i in 1:cols){
@@ -41,7 +66,9 @@ Umatch <- function(from, to){
   }
   return(mat)
 }
-
+##
+## UprodR: This function computes an orthogonal matrix as the product of two-dimensional rotation matrices.
+##
 UprodR <-
 function(theta){
   theta <- as.vector(theta)
@@ -63,7 +90,9 @@ function(theta){
   result <- new("Orthom", M = U)
   return(result)
 }
-
+##
+## Rd2: This function returns a two-dimensional rotation matrix for a given Euler angle.
+##
 Rd2 <-
 function(theta){
   theta <- as.vector(theta)
@@ -76,8 +105,13 @@ function(theta){
   R <- matrix(c(cos(theta), sin(theta), -sin(theta), cos(theta)), ncol = 2, nrow = 2)
   return(R)              
 }
-
-cora <- function(SSI, lag = 1, standardize = TRUE){
+##
+## cora: Computation of autocorrelations/autocovariances of a matrix process.
+## This function is utilized whence a GO-GARCH model is estimated by the
+## methods of moments
+##
+cora <-
+function(SSI, lag = 1, standardize = TRUE){
   lag <- abs(as.integer(lag))
   dims <- dim(SSI)
   Gamma <- matrix(0, nrow = dims[1], ncol = dims[2])
@@ -113,8 +147,11 @@ cora <- function(SSI, lag = 1, standardize = TRUE){
   cora <- (cora + t(cora)) / 2
   return(cora)
 }
-
-goinit <- function(X, garchf = ~ garch(1, 1), scale = FALSE){
+##
+## goinit: Function for creating an object of class "Goinit"
+##
+goinit <-
+function(X, garchf = ~ garch(1, 1), scale = FALSE){
   dname <- deparse(substitute(X))
   X <- as.matrix(X)
   if(ncol(X) > nrow(X)){
@@ -131,7 +168,10 @@ goinit <- function(X, garchf = ~ garch(1, 1), scale = FALSE){
   result <- new("Goinit", X = X, V = V, P = P, Dsqr = Dsqr, garchf = garchf, name = dname)
   return(result)
 }
-
+##
+## gollh: The log-likelihood function of GO-GARCH models.
+## This function is employed whence GO-GARCH models are estimated by Maximum Likelihood
+##
 gollh <-
 function(params, object, garchlist){
   gotheta <- gotheta(theta = params, object = object, garchlist = garchlist)
@@ -147,7 +187,10 @@ function(params, object, garchlist){
   negll <- -1.0 * ll
   return(negll)
 }
-
+##
+## gonls: The target function to be minimized whence GO-GARCH models are estimated
+## by non-linear least-squares.
+##
 gonls <-
 function(params, SSI){
   B <- unvech(params)
@@ -161,7 +204,10 @@ function(params, SSI){
   f <- sum(unlist(lapply(fl, function(x) sum(diag(x))))) / n
   return(f)   
 }
-
+##
+## gotheta: For a given vector of Euler angles, this function computes a GO-GARCH model.
+## The function is called during estimation of GO-GARCH models by maximum likelihood.
+##
 gotheta <-
 function(theta, object, garchlist = list(init.rec = "mci", delta = 2, skew = 1, shape = 4, cond.dist = "norm", include.mean = FALSE, include.delta = NULL, include.skew = NULL, include.shape = NULL, leverage = NULL, trace = FALSE, algorithm = "nlminb", hessian = "ropt", control = list(), title = NULL, description = NULL)){
   if(!any(inherits(object, what = c("Goinit", "GoGARCH", "Goestml")))) {
@@ -186,7 +232,9 @@ function(theta, object, garchlist = list(init.rec = "mci", delta = 2, skew = 1, 
   result <- new("GoGARCH", U = U, Z = Z, Y = Y, H = Ht, models = fitted, X = object@X, P = object@P, Dsqr = object@Dsqr, V = object@V, garchf = object@garchf, name = object@name, CALL = match.call())
   return(result)
 }
-
+##
+## unvech: Reverts the vech-operator and returns a symmetric matrix
+##
 unvech <-
 function(v){
   v <- as.vector(v)

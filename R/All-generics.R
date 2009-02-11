@@ -3,10 +3,6 @@
 ##
 setGeneric("goest", function(object, ...) standardGeneric("goest"))
 ##
-## Generic definition for extracting object@M for objects of class Orthom
-##
-setGeneric("M", function(object, ...) standardGeneric("M"))
-##
 ## Generic definition for extracting Euler angles
 ##
 setGeneric("angles", function(object, ...) standardGeneric("angles"))
@@ -27,13 +23,21 @@ setGeneric("ccor", function(object, ...) standardGeneric("ccor"))
 ##
 setGeneric("converged", function(object, ...) standardGeneric("converged"))
 ##
-## Setting Generics for coef, residuals, logLik and t
+## Generic definition for extracting object@M for objects of class Orthom
+##
+setGeneric("M", function(object, ...) standardGeneric("M"))
+##
+## Setting Generics for coef, formula, logLik,
+## plot, predict, residuals, resid, summary, t
+## and update
 ##
 setGeneric("coef")
 setGeneric("formula")
 setGeneric("logLik")
+setGeneric("plot")
 setGeneric("predict")
 setGeneric("residuals")
+setGeneric("resid")
 setGeneric("summary")
 setGeneric("t")
 setGeneric("update")

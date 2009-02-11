@@ -17,6 +17,7 @@
 
 \section{Methods}{
   \describe{
+    \item{goest}{\code{signature(object = "Goestica")}}
     \item{goest}{\code{signature(object = "Goestmm")}}
     \item{goest}{\code{signature(object = "Goestml")}}
     \item{goest}{\code{signature(object = "Goestnls")}}
@@ -33,9 +34,9 @@
 }
 
 \seealso{
-  \code{\link[fGarch]{garchFit}}, \code{\linkS4class{Goestml}},
-  \code{\linkS4class{Goestnls}}, \code{\linkS4class{Goestmm}},
-  \code{\link{gogarch}}
+  \code{\link[fGarch]{garchFit}}, \code{\linkS4class{Goestica}},
+  \code{\linkS4class{Goestml}}, \code{\linkS4class{Goestnls}},
+  \code{\linkS4class{Goestmm}}, \code{\link{gogarch}}
 }
 
 \keyword{methods}

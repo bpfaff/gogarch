@@ -12,8 +12,10 @@
 \alias{converged,Goestmm-method}
 \alias{formula,Goestmm-method}
 \alias{goest,Goestmm-method}
+\alias{plot,Goestmm,missing-method}
 \alias{predict,Goestmm-method}
 \alias{residuals,Goestmm-method}
+\alias{resid,Goestmm-method}
 \alias{show,Goestmm-method}
 \alias{summary,Goestmm-method}
 \alias{update,Goestmm-method}
@@ -28,7 +30,8 @@
 
 \section{Objects from the Class}{
   Objects can be created by calls of the form \code{new("Goestmm", ...)},
-  or with the function \code{gogarch}. 
+  or with the function \code{gogarch} whereby \code{method = "mm"} has
+  been set.  
 }
 
 \section{Slots}{
@@ -67,18 +70,25 @@ Class \code{"\linkS4class{Goinit}"}, by class "GoGARCH", distance 2.
 
 \section{Methods}{
   \describe{
-    \item{cvar}{Returns the conditional variances.}
-    \item{ccor}{Returns the conditional correlations.}    
-    \item{ccov}{Returns the conditional covariances.}    
+    \item{cvar}{Returns the conditional variances as object with class attribute
+  \code{"mts" "ts"}.}
+    \item{ccov}{Returns the conditional co-variances as object with
+  class attribute \code{"mts" "ts"}.}
+    \item{ccor}{Returns the conditional correlationsas object with class
+  attribute \code{"mts" "ts"}.}
     \item{coef}{Returns the coeffiecients of the component GARCH models.}
     \item{converged}{Returns the convergence codes of the component
       GARCH models.}
     \item{formula}{Returns the formula for the component GARCH models.}
     \item{goest}{Methods of moments estimation of Go-GARCH models.}
+    \item{plot}{Plotting of the conditional correlations.}
     \item{predict}{Returns the conditional covariances and mean
   forecasts and the forecasts of the component GARCH models, object is
   of class \code{Gopredict}.}
-    \item{residuals}{Returns the residuals of the component GARCH models.}
+    \item{residuals}{Returns the residuals of the Go-GARCH model as
+  object with class attribute \code{"mts" "ts"}.}
+    \item{resid}{Returns the residuals of the Go-GARCH model as
+      object with class attribute \code{"mts" "ts"}.}
     \item{show}{show-method for objects of class \code{Goestmm}.}
     \item{summary}{summary-method for objects of class \code{Goestml},
   object is of class \code{Gosum}.}  

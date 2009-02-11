@@ -11,8 +11,10 @@
 \alias{coef,GoGARCH-method}
 \alias{converged,GoGARCH-method}
 \alias{formula,GoGARCH-method}
+\alias{plot,GoGARCH,missing-method}
 \alias{predict,GoGARCH-method}
 \alias{residuals,GoGARCH-method}
+\alias{resid,GoGARCH-method}
 \alias{show,GoGARCH-method}
 \alias{summary,GoGARCH-method}
 \alias{update,GoGARCH-method}
@@ -61,17 +63,21 @@ Class \code{"\linkS4class{Goinit}"}, directly.
 
 \section{Methods}{
   \describe{
-    \item{cvar}{Returns the conditional variances.}
-    \item{ccov}{Returns the conditional co-variances.}
-    \item{ccor}{Returns the conditional correlations.}
+    \item{cvar}{Returns the conditional variances as object with class attribute
+  \code{"mts" "ts"}.}
+    \item{ccov}{Returns the conditional co-variances as object with
+  class attribute \code{"mts" "ts"}.}
+    \item{ccor}{Returns the conditional correlationsas object with class
+  attribute \code{"mts" "ts"}.}
     \item{coef}{Returns the coeffiecients of the component GARCH models.}
     \item{converged}{Returns the convergence codes of the component
   GARCH models.}  
     \item{formula}{Returns the formula for the component GARCH models.}
+    \item{plot}{Plotting of the conditional correlations.}
     \item{predict}{Returns the conditional covariances and mean
   forecasts and the forecasts of the component GARCH models, object is
   of class \code{Gopredict}.}
-    \item{residuals}{Returns the residuals of the component GARCH models.}
+    \item{residuals}{Returns the residuals of the GO-GARCH model.}
     \item{show}{show-method for objects of class \code{GoGARCH}.}
     \item{summary}{summary-method for objects of class \code{GoGARCH},
   object is of class \code{Gosum}.}

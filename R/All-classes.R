@@ -15,6 +15,10 @@ setClass(Class = "GoGARCH", representation(Z = "matrix", U = "matrix", Y = "matr
 ##
 setClass(Class = "Goestica", representation(ica = "list"), contains = "GoGARCH")
 ##
+## Class definition of GO-GARCH objects, estimated by Methods of Moments
+##
+setClass(Class = "Goestmm", representation(weights = "numeric", Umatched = "list"), contains = "GoGARCH")
+##
 ## Class definition of GO-GARCH objects, estimated by Maximum-Likelihood
 ##
 setClass(Class = "Goestml", representation(opt = "list"), contains = "GoGARCH")
@@ -22,10 +26,6 @@ setClass(Class = "Goestml", representation(opt = "list"), contains = "GoGARCH")
 ## Class definition of GO-GARCH objects, estimated by Non-linear Least-Squares
 ##
 setClass(Class = "Goestnls", representation(nls = "list"), contains = "GoGARCH")
-##
-## Class definition of GO-GARCH objects, estimated by Methods of Moments
-##
-setClass(Class = "Goestmm", representation(weights = "numeric", Umatched = "list"), contains = "GoGARCH")
 ##
 ## Class definition for summary objects from GoGARCH
 ##

@@ -12,8 +12,10 @@
 \alias{converged,Goestnls-method}
 \alias{formula,Goestnls-method}
 \alias{goest,Goestnls-method}
+\alias{plot,Goestnls,missing-method}
 \alias{predict,Goestnls-method}
 \alias{residuals,Goestnls-method}
+\alias{resid,Goestnls-method}
 \alias{show,Goestnls-method}
 \alias{summary,Goestnls-method}
 \alias{update,Goestnls-method}
@@ -27,13 +29,14 @@
 
 \section{Objects from the Class}{
   Objects can be created by calls of the form \code{new("Goestnls", ...)}, 
-  or with the function \code{gogarch}. 
+  or with the function \code{gogarch} whereby \code{method = "nls"} has
+  been set. 
 }
 
 \section{Slots}{
   \describe{
     \item{\code{nls}:}{Object of class \code{"list"}: List returned by
-	 \code{nlminb}.}
+	 \code{optim}.}
     \item{\code{Z}:}{Object of class \code{"matrix"}: Transformation matrix.}
     \item{\code{U}:}{Object of class \code{"matrix"}: Orthogonal matrix.}
     \item{\code{Y}:}{Object of class \code{"matrix"}: Extracted
@@ -63,18 +66,25 @@ Class \code{"\linkS4class{Goinit}"}, by class "GoGARCH", distance 2.
 }
 \section{Methods}{
   \describe{
-    \item{cvar}{Returns the conditional variances.}
-    \item{ccov}{Returns the conditional co-variances.}
-    \item{ccor}{Returns the conditional correlations.}
+    \item{cvar}{Returns the conditional variances as object with class attribute
+  \code{"mts" "ts"}.}
+    \item{ccov}{Returns the conditional co-variances as object with
+  class attribute \code{"mts" "ts"}.}
+    \item{ccor}{Returns the conditional correlationsas object with class
+  attribute \code{"mts" "ts"}.}
     \item{coef}{Returns the coeffiecients of the component GARCH models.}
     \item{converged}{Returns the convergence codes of the component
   GARCH models.}  
     \item{formula}{Returns the formula for the component GARCH models.}
     \item{goest}{NLS-Estimation of Go-GARCH models.}
+    \item{plot}{Plotting of the conditional correlations.}
     \item{predict}{Returns the conditional covariances and mean
-  forecasts and the forecasts of the component GARCH models, object is
-  of class \code{Gopredict}.}
-    \item{residuals}{Returns the residuals of the component GARCH models.}
+      forecasts and the forecasts of the component GARCH models, object
+      is of class \code{Gopredict}.}
+    \item{residuals}{Returns the residuals of the Go-GARCH model as
+  object with class attribute \code{"mts" "ts"}.}
+    \item{resid}{Returns the residuals of the Go-GARCH model as
+      object with class attribute \code{"mts" "ts"}.}
     \item{show}{show-method for objects of class \code{Goestnls}.}
     \item{summary}{summary-method for objects of class \code{GoGARCH},
   object is of class \code{Gosum}.}

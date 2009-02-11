@@ -1,5 +1,5 @@
 ##
-## Validity function for objects of class Goinit
+## Validity function for objects of class "Goinit"
 ##
 validGoinitObject <- function(object){
   m <- nrow(object@V)
@@ -29,14 +29,10 @@ validGoinitObject <- function(object){
     print("\nCovariance matrix cannot be replicated from singular values.\n")
   }
 }
-##
 ## Setting as validity function
-##
 setValidity("Goinit", validGoinitObject)
-
-
 ##
-## Validity function for objects of class Orthom
+## Validity function for objects of class "Orthom"
 ##
 validOrthomObject <- function(object){
   m <- nrow(object@M)
@@ -57,7 +53,5 @@ validOrthomObject <- function(object){
     print("\nThe cross product of the object is not the Identity matrix.\n")
   }
 }
-##
 ## Setting as validity function
-##
 setValidity("Orthom", validOrthomObject)

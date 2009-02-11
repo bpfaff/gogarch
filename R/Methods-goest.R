@@ -1,3 +1,11 @@
+##
+## Methods for estimating GO-GARCH models
+## ==================================================
+##
+##
+## Method definition for objects of class "Goestica"
+## "Goestica" extends directly "GoGARCH"
+##
 setMethod(f = "goest", signature(object = "Goestica"), definition = function(object, initial, garchlist, ...){
   X <- object@X
   m <- ncol(X)
@@ -18,8 +26,10 @@ setMethod(f = "goest", signature(object = "Goestica"), definition = function(obj
   result <- new("Goestica", ica = ica, estby = "fast ICA", U = W, Z = Z, Y = Y, H = Ht, models = fitted, X = object@X, P = object@P, Dsqr = object@Dsqr, V = object@V, garchf = object@garchf, name = object@name)
   return(result)  
 })
-
-
+##
+## Method definition for objects of class "Goestmm"
+## "Goestmm" extends directly "GoGARCH"
+##
 setMethod(f = "goest", signature(object = "Goestmm"), definition = function(object, lag.max, garchlist, ...){
   lag.max <- abs(as.integer(lag.max))
   X <- object@X
@@ -41,15 +51,15 @@ setMethod(f = "goest", signature(object = "Goestmm"), definition = function(obje
       SSI[, , i] <- S[i, ] %*% t(S[i, ]) - diag(m)
     }
     Phil <- lapply(1:lag.max, function(x) cora(SSI, lag = x))
-    svd <- lapply(Phil, function(x) eigen(x, symmetric = TRUE))
-    evmin <- unlist(lapply(svd, function(x){
+    evs <- lapply(Phil, function(x) eigen(x, symmetric = TRUE))
+    evmin <- unlist(lapply(evs, function(x){
       sel <- combn(1:m, 2)
       diffs2 <- (x$values[sel[1, ]] - x$values[sel[2, ]])^2
       min(diffs2)
     }))
     denom <- sum(evmin)
     weights <- evmin / denom
-    Ul <- lapply(svd, function(x) x$vectors)
+    Ul <- lapply(evs, function(x) x$vectors)
     Ul[[1]] <- Umatch(Id, Ul[[1]])
     Sm <- matrix(0, nrow = m, ncol = m)
     for(i in 1:lag.max){
@@ -70,8 +80,10 @@ setMethod(f = "goest", signature(object = "Goestmm"), definition = function(obje
   result <- new("Goestmm", weights = weights, Umatched = Umatched, estby = "Methods of Moments", U = U, Z = Z, Y = Y, H = Ht, models = fitted, X = object@X, P = object@P, Dsqr = object@Dsqr, V = object@V, garchf = object@garchf, name = object@name) 
   return(result)  
 })
-
-
+##
+## Method definition for objects of class "Goestnls"
+## "Goestnls" extends directly "GoGARCH"
+##
 setMethod(f = "goest", signature(object = "Goestnls"), definition = function(object, initial, garchlist, ...){
   d <- ncol(object@X)
   if(is.null(initial)){
@@ -98,9 +110,9 @@ setMethod(f = "goest", signature(object = "Goestnls"), definition = function(obj
   SSI0 <- SSI[-1]
   SSI1 <- SSI[-n]
   SSI <- list(SSI0 = SSI0, SSI1 = SSI1)  
-  nlsobj <- nlminb(start = initial, objective = gonls, SSI = SSI, ...)
+  nlsobj <- optim(par = initial, fn = gonls, SSI = SSI, ...)
   B <- unvech(nlsobj$par)
-  U <- svd(B)$u
+  U <- eigen(B)$vectors
   Z <- P %*% Dsqr %*% t(U)
   Y <- S %*% U
   fitted <- apply(Y, 2, function(x) do.call("garchFit", c(list(formula = object@garchf, data = quote(x)), garchlist)))
@@ -111,7 +123,10 @@ setMethod(f = "goest", signature(object = "Goestnls"), definition = function(obj
   result <- new("Goestnls", nls = nlsobj, estby = "non-linear Least-Squares", U = U, Z = Z, Y = Y, H = Ht, models = fitted, X = object@X, P = object@P, Dsqr = object@Dsqr, V = object@V, garchf = object@garchf, name = object@name) 
   return(result)  
 })
-
+##
+## Method definition for objects of class "Goestml"
+## "Goestml" extends directly "GoGARCH"
+##
 setMethod(f = "goest", signature(object = "Goestml"), definition = function(object, initial, garchlist, ...){
   d <- ncol(object@X)
   if(is.null(initial)){

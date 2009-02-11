@@ -20,8 +20,10 @@
 \alias{formula,Goestml-method}
 \alias{goest,Goestml-method}
 \alias{logLik,Goestml-method}
+\alias{plot,Goestml,missing-method}
 \alias{predict,Goestml-method}
 \alias{residuals,Goestml-method}
+\alias{resid,Goestml-method}
 \alias{show,Goestml-method}
 \alias{summary,Goestml-method}
 \alias{update,Goestml-method}
@@ -33,8 +35,9 @@
 }
 
 \section{Objects from the Class}{
-Objects can be created by calls of the form \code{new("Goestml", ...)},
-or with the function \code{gogarch}.
+  Objects can be created by calls of the form \code{new("Goestml",
+  ...)}, or with the function \code{gogarch} whereby \code{method =
+  "ml"} has been set.  
 }
 
 \section{Slots}{
@@ -72,19 +75,26 @@ Class \code{"\linkS4class{Goinit}"}, by class "GoGARCH", distance 2.
 \section{Methods}{
   \describe{
     \item{angles}{Returns the Eulerian angles.}
-    \item{cvar}{Returns the conditional variances.}
-    \item{ccor}{Returns the conditional correlations.}    
-    \item{ccov}{Returns the conditional covariances.}    
+    \item{cvar}{Returns the conditional variances as object with class attribute
+  \code{"mts" "ts"}.}
+    \item{ccov}{Returns the conditional co-variances as object with
+  class attribute \code{"mts" "ts"}.}
+    \item{ccor}{Returns the conditional correlations as object with class
+  attribute \code{"mts" "ts"}.}
     \item{coef}{Returns the coeffiecients of the component GARCH models.}
     \item{converged}{Returns the convergence codes of the component
       GARCH models.}
     \item{formula}{Returns the formula for the component GARCH models.}
     \item{goest}{ML-Estimation of Go-GARCH models.}    
     \item{logLik}{Returns the value of the log-Likelihood function.}
+    \item{plot}{Plotting of the conditional correlations.}
     \item{predict}{Returns the conditional covariances and mean
   forecasts and the forecasts of the component GARCH models, object is
   of class \code{Gopredict}.}
-    \item{residuals}{Returns the residuals of the component GARCH models.}
+    \item{residuals}{Returns the residuals of the Go-GARCH model as
+  object with class attribute \code{"mts" "ts"}.}
+    \item{resid}{Returns the residuals of the Go-GARCH model as
+      object with class attribute \code{"mts" "ts"}.}
     \item{show}{show-method for objects of class \code{Goestml}.}
     \item{summary}{summary-method for objects of class \code{Goestml},
   object is of class \code{Gosum}.}  
