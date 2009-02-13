@@ -1,3 +1,9 @@
+2009-02-13  Dr. Bernhard Pfaff  <bp@callisto>
+
+	* man/Orthom-class.Rd: Fixed documentation for methods.
+	* man/VDW.Rd: Fixed line breaks for urls.
+	* man/gogarch.Rd: Fixed line breaks in example section.
+
 2009-02-11  Dr. Bernhard Pfaff  <bp@callisto>
 
 	* DESCRIPTION: Initial upload to CRAN. 

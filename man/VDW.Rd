@@ -39,7 +39,8 @@
 }
 
 \references{
-  \url{http://www.nasdaq.com}, \url{http://www.djindexes.com} \\
+  \url{http://www.nasdaq.com}\cr
+  \url{http://www.djindexes.com}\cr 
   \url{http://qed.econ.queensu.ca/jae/2002-v17.5/van_der_weide}
 }
 

@@ -32,10 +32,10 @@
 
 \section{Methods}{
   \describe{
-    \S4method{M}{Returns the slot \code{M} of class \code{Orthom}.}
-    \S4method{print}{print-method for objects of class \code{Orthom}.}
-    \S4method{show}{show-method for objects of class \code{Orthom}.}
-    \S4method{t}{Transpose of \code{object@M}.}
+    \item{M}{Returns the slot \code{M} of class \code{Orthom}.}
+    \item{print}{print-method for objects of class \code{Orthom}.}
+    \item{show}{show-method for objects of class \code{Orthom}.}
+    \item{t}{Transpose of \code{object@M}.}
   }
 }
 

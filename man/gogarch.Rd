@@ -103,19 +103,22 @@ BVDWSTOXX <- window(BVDWSTOXX, end = as.POSIXct("2007-12-31"))
 BVDWSTOXX <- diff(log(BVDWSTOXX))
 sectors <- BVDWSTOXX[, c("AutoParts", "Banks", "OilGas")]
 sectors <- apply(sectors, 2, scale, scale = FALSE)
-gogmm <- gogarch(sectors, formula = ~garch(1,1), method = "mm", lag.max = 100)
+gogmm <- gogarch(sectors, formula = ~garch(1,1), method = "mm",
+         lag.max = 100)
 gogmm
 ## Boswijk / van der Weide (2006)
 data(BVDW)
 BVDW <- zoo(x = BVDW[, -1], order.by = BVDW[, 1])
 BVDW <- diff(log(BVDW)) * 100
-gognls <- gogarch(BVDW, formula = ~garch(1,1), scale = TRUE, method = "nls")
+gognls <- gogarch(BVDW, formula = ~garch(1,1), scale = TRUE,
+          method = "nls")
 gognls
 ## van der Weide (2002)
 data(VDW)
 var1 <- VAR(scale(VDW), p = 1, type = "const")
 resid <- residuals(var1)
-gogml <- gogarch(resid, ~garch(1, 1), scale = TRUE, method = "ml", control = list(iter.max = 1000))
+gogml <- gogarch(resid, ~garch(1, 1), scale = TRUE,
+         method = "ml", control = list(iter.max = 1000))
 gogml
 solve(gogml@Z)
 }
