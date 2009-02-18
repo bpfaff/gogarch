@@ -1,3 +1,8 @@
+2009-02-18  Dr. Bernhard Pfaff  <bp@callisto>
+
+	* man/gogarch.Rd: Adjusted Rd-file.
+	* R/Functions.R (gogarch): Changed argument "method" to "estby".
+
 2009-02-13  Dr. Bernhard Pfaff  <bp@callisto>
 
 	* man/Orthom-class.Rd: Fixed documentation for methods.

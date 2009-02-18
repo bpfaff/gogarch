@@ -13,7 +13,7 @@
   models. 
 }
 \usage{
-gogarch(data, formula, scale = FALSE, method = c("ica", "mm", "ml", "nls"),
+gogarch(data, formula, scale = FALSE, estby = c("ica", "mm", "ml", "nls"),
   lag.max = 1, initial = NULL, garchlist = list(init.rec = "mci", delta
   = 2, skew = 1, shape = 4, cond.dist = "norm", include.mean = FALSE,
   include.delta = NULL, include.skew = NULL, include.shape = NULL,
@@ -26,31 +26,31 @@ gogarch(data, formula, scale = FALSE, method = c("ica", "mm", "ml", "nls"),
   \item{formula}{Formula: valid formula for univariate GARCH models.}
   \item{scale}{Logical, if \code{TRUE} the data is scaled. The default
   is \code{scale = FALSE}.}
-  \item{method}{Character: by fast ICA \code{method = "ica"} (the
-  default), by Methods of Moments \code{method = "mm"} or by
-  Maximum-Likelihood \code{method = "ml"} or by non-linear Least-Squares
-  \code{method = "nls"}.} 
+  \item{estby}{Character: by fast ICA \code{estby = "ica"} (the
+  default), by Estbys of Moments \code{estby = "mm"} or by
+  Maximum-Likelihood \code{estby = "ml"} or by non-linear Least-Squares
+  \code{estby = "nls"}.} 
   \item{initial}{Numeric: starting values for optimization (used if
-  \code{method = "ml"} or \code{method = "nls"} has been chosen (see
+  \code{estby = "ml"} or \code{estby = "nls"} has been chosen (see
   Details).}
   \item{lag.max}{Integer: The number of used lags for computing the
-    matched orthogonal matrices \eqn{U} (used if \code{method = "mm"}
+    matched orthogonal matrices \eqn{U} (used if \code{estby = "mm"}
     has been chosen).}
   \item{garchlist}{List: Elements are passed to \code{garchFit}.}
-  \item{\dots}{Ellipsis argument: is passed to the function for
-  determining the components (see details).}
+  \item{\dots}{Ellipsis argument: is passed to the \code{goest} method
+  (see details).} 
 }
 
 \details{
   The ellipsis argument is passed to the function \code{fastICA} if
-  \code{method = "ica"} has been set, or to \code{optim} if \code{method
+  \code{estby = "ica"} has been set, or to \code{optim} if \code{estby
   = "nls"} is employed or to \code{nlminb} if the GO-GARCH model is
-  estimated by maximum likelihood, \emph{i.e.}, \code{method = "ml"}. It
+  estimated by maximum likelihood, \emph{i.e.}, \code{estby = "ml"}. It
   is not employed if the methods of moments estimator is chosen.\cr
 
   If the argument \code{initial} is left \code{NULL}, the starting
   values are computed according \code{seq(3.0, 0.1, length.out = l)},
-  whereby \code{l} is the length of \code{initial} for \code{method =
+  whereby \code{l} is the length of \code{initial} for \code{estby =
   "ml"} and are set to \code{rep(0.1, d}, whereby \code{} for
   \code{method = "nls"}. This length must be equal to \eqn{m * (m -
   1)/2} for estimation by Maximum-Likelihood and \eqn{m * (m + 1)/2} for
