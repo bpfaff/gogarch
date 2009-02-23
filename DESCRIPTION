@@ -2,7 +2,7 @@ Package: gogarch
 Version: 0.6-7
 Type: Package
 Title: Generalized Orthogonal GARCH (GO-GARCH) models
-Date: 2009-02-18
+Date: 2009-02-23
 Author: Bernhard Pfaff
 Maintainer: Bernhard Pfaff <bernhard@pfaffikus.de>
 Depends: R (>= 2.7.0), methods, stats, graphics, fGarch, fastICA

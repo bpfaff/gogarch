@@ -1,3 +1,7 @@
+2009-02-23  Dr. Bernhard Pfaff  <bp@callisto>
+
+	* man/gogarch.Rd: Replaced method with estby in example section.
+
 2009-02-18  Dr. Bernhard Pfaff  <bp@callisto>
 
 	* man/gogarch.Rd: Adjusted Rd-file.
