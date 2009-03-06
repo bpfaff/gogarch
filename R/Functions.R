@@ -243,7 +243,7 @@ function(v){
   if(n %% 1 != 0.0){
     stop("\nCannot produce symmetric matrix, check length of v.\n")
   }
-  X <- matrix(NA, ncol = n, nrow = n)
+  X <- matrix(0, ncol = n, nrow = n)
   X[lower.tri(X, diag = TRUE)] <- v
   Z <- X + t(X)
   diag(Z) <- diag(X)
