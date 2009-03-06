@@ -245,6 +245,7 @@ function(v){
   }
   X <- matrix(NA, ncol = n, nrow = n)
   X[lower.tri(X, diag = TRUE)] <- v
-  X[upper.tri(X)] <- X[lower.tri(X)]
-  return(X)
+  Z <- X + t(X)
+  diag(Z) <- diag(X)
+ return(Z)
 }
