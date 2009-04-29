@@ -22,7 +22,7 @@ setMethod(f = "show", signature(object = "GoGARCH"), definition = function(objec
     cat("Orthogonal Matrix U:\n")
     print(object@U)
     cat("\n")
-    cat("Linar Map Z:\n")
+    cat("Linear Map Z:\n")
     print(object@Z)
     cat("\n")
   }
@@ -84,7 +84,7 @@ setMethod(f = "show", signature(object = "Gosum"), definition = function(object)
   cat(paste("Formula for component GARCH models:", paste(as.character(object@model), collapse = " "), "\n"))
   cat("\n")  
   if(length(object@Zinv) != 0){
-    cat("The Inverse of the Linar Map Z:\n")
+    cat("The Inverse of the Linear Map Z:\n")
     print(object@Zinv)
     cat("\n")
   }

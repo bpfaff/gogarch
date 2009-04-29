@@ -1,3 +1,7 @@
+2009-04-29  Dr. Bernhard Pfaff  <bp@callisto>
+
+	* R/Methods-show.R (show): Fixed typo 'Linar' to 'Linear'.
+
 2009-03-06  Dr. Bernhard Pfaff  <bp@callisto>
 
 	* R/Functions.R (unvech): Fixed bug in creating symmetric matrix.
