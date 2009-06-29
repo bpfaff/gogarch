@@ -1,3 +1,7 @@
+2009-06-29  Dr. Bernhard Pfaff  <bp@callisto>
+
+	* inst/Talks/pfaff-meielisalp.pdf: Presentation added.
+
 2009-04-29  Dr. Bernhard Pfaff  <bp@callisto>
 
 	* R/Methods-show.R (show): Fixed typo 'Linar' to 'Linear'.
