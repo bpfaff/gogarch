@@ -1,3 +1,7 @@
+2011-03-21  Dr. Bernhard Pfaff  <bp@callisto>
+
+	* data/*.Rda: Saved data files in compressed form.
+
 2009-06-29  Dr. Bernhard Pfaff  <bp@callisto>
 
 	* inst/Talks/pfaff-meielisalp.pdf: Presentation added.
