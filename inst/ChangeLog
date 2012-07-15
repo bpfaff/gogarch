@@ -1,3 +1,8 @@
+2012-07-15  Bernhard Pfaff  <bp@callisto.local>
+
+	* DESCRIPTION (Package): Replaced Author, Maintainer fields with
+	Authors@R directive.
+
 2011-03-21  Dr. Bernhard Pfaff  <bp@callisto>
 
 	* data/*.Rda: Saved data files in compressed form.
