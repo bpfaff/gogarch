@@ -1,0 +1,40 @@
+2012-07-15  Bernhard Pfaff  <bp@callisto.local>
+
+	* DESCRIPTION (Package): Replaced Author, Maintainer fields with
+	Authors@R directive.
+
+2011-03-21  Dr. Bernhard Pfaff  <bp@callisto>
+
+	* data/*.Rda: Saved data files in compressed form.
+
+2009-06-29  Dr. Bernhard Pfaff  <bp@callisto>
+
+	* inst/Talks/pfaff-meielisalp.pdf: Presentation added.
+
+2009-04-29  Dr. Bernhard Pfaff  <bp@callisto>
+
+	* R/Methods-show.R (show): Fixed typo 'Linar' to 'Linear'.
+
+2009-03-06  Dr. Bernhard Pfaff  <bp@callisto>
+
+	* R/Functions.R (unvech): Fixed bug in creating symmetric matrix.
+
+2009-02-23  Dr. Bernhard Pfaff  <bp@callisto>
+
+	* man/gogarch.Rd: Replaced method with estby in example section.
+
+2009-02-18  Dr. Bernhard Pfaff  <bp@callisto>
+
+	* man/gogarch.Rd: Adjusted Rd-file.
+	* R/Functions.R (gogarch): Changed argument "method" to "estby".
+
+2009-02-13  Dr. Bernhard Pfaff  <bp@callisto>
+
+	* man/Orthom-class.Rd: Fixed documentation for methods.
+	* man/VDW.Rd: Fixed line breaks for urls.
+	* man/gogarch.Rd: Fixed line breaks in example section.
+
+2009-02-11  Dr. Bernhard Pfaff  <bp@callisto>
+
+	* DESCRIPTION: Initial upload to CRAN. 
+

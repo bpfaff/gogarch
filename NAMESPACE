@@ -1,0 +1,18 @@
+## Import packages
+import(methods)
+
+## Import functions
+importFrom(stats, coef, formula, logLik, predict, residuals, resid, ts, as.ts, update)
+importFrom(graphics, plot)
+
+## Classes       
+exportClasses(Goestml, Goestmm, Goestnls, GoGARCH, Goinit, Gopredict, Gosum, Orthom)
+
+## Methods
+exportMethods(angles, cvar, ccor, ccov, coef, converged, formula, goest, logLik, M, plot, predict, show, summary, t, residuals, resid, update)
+
+## Functions
+export(cora, gogarch, goinit, gollh, gonls, gotheta, Rd2, Umatch, UprodR, unvech, validOrthomObject, validGoinitObject)
+
+
+
