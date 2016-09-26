@@ -14,7 +14,7 @@
 
 \section{Objects from the Class}{
   Objects can be created by calls of the form \code{new("Gosum", ...)}
-  or are set by the summary-method. 
+  or are set by the summary-method.
 }
 
 \section{Slots}{
@@ -41,7 +41,7 @@
 }
 
 \seealso{
-  \code{\linkS4class{GoGARCH}}, \code{\linkS4class{Goestml}} 
+  \code{\linkS4class{GoGARCH}}, \code{\linkS4class{Goestml}}
 }
 
 \keyword{classes}

@@ -41,7 +41,7 @@ setMethod("update", signature(object = "Goestica"), function(object, formula., .
   if (evaluate)
     eval(call, parent.frame())
   else call
-}) 
+})
 ##
 ## Method definition for objects of class "Goestmm"
 ## "Goestmm" extends directly "GoGARCH"
@@ -62,7 +62,7 @@ setMethod("update", signature(object = "Goestmm"), function(object, formula., ..
   if (evaluate)
     eval(call, parent.frame())
   else call
-}) 
+})
 ##
 ## Method definition for objects of class "Goestnls"
 ## "Goestnls" extends directly "GoGARCH"
@@ -83,7 +83,7 @@ setMethod("update", signature(object = "Goestnls"), function(object, formula., .
   if (evaluate)
     eval(call, parent.frame())
   else call
-}) 
+})
 ##
 ## Method definition for objects of class "Goestml"
 ## "Goestml" extends directly "GoGARCH"
@@ -104,4 +104,4 @@ setMethod("update", signature(object = "Goestml"), function(object, formula., ..
   if (evaluate)
     eval(call, parent.frame())
   else call
-}) 
+})

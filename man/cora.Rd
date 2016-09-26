@@ -11,7 +11,7 @@
 \description{
   This function computes the autocorrelation matrix for a given lag. For
   instance, it is used for estimating GO-GARCH models whence the method
-  of moments is utilized.   
+  of moments is utilized.
 }
 
 \usage{
@@ -23,7 +23,7 @@ cora(SSI, lag = 1, standardize = TRUE)
     computed.}
   \item{standardize}{Logical, if \code{TRUE} (the default), the
     autocorrelation matrix is computed, otherwise the autocovariance
-    matrix.}   
+    matrix.}
 }
 
 \details{
@@ -36,12 +36,12 @@ cora(SSI, lag = 1, standardize = TRUE)
     \hat{\Phi}_k (s) = \hat{\Gamma}_0 (s)^{-1/2} \hat{\Gamma}_k (s)
     \hat{\Gamma}_0 (s)^{-1/2}
   }
-  
+
   It is computationally assured that \eqn{\hat{\Phi}_k (s)} is symmetric
   by setting it equal to: \eqn{\hat{\Phi}_k (s) = \frac{1}{2}(\hat{\Phi}_k (s) +
   \hat{\Phi}_k (s)')}. The standardization matrix \eqn{\hat{\Gamma}_0
   (s)^{-1/2}} is derived from the singular value decomposition of the
-  co-variance matrix at lag zero.   
+  co-variance matrix at lag zero.
 }
 
 \value{

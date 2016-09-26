@@ -10,14 +10,14 @@ setMethod(f = "show", signature(object = "GoGARCH"), definition = function(objec
   cat("\n")
   cat(paste(stars, "\n"))
   cat(paste(title, "\n"))
-  cat(paste(stars, "\n"))  
+  cat(paste(stars, "\n"))
   cat("\n")
   cat(paste("Components estimated by:", object@estby))
   cat("\n")
   cat(paste("Dimension of data matrix:", paste("(", nrow(object@X), " x ", ncol(object@X), ").", sep = "")))
   cat("\n")
   cat(paste("Formula for component GARCH models:", paste(as.character(object@garchf), collapse = " "), "\n"))
-  cat("\n")  
+  cat("\n")
   if(length(object@U) != 0){
     cat("Orthogonal Matrix U:\n")
     print(object@U)
@@ -26,7 +26,7 @@ setMethod(f = "show", signature(object = "GoGARCH"), definition = function(objec
     print(object@Z)
     cat("\n")
   }
-  cat("Estimated GARCH coefficients:\n")   
+  cat("Estimated GARCH coefficients:\n")
   print(coef(object))
   cat("\n")
   cat("Convergence codes of component GARCH models:\n")
@@ -77,12 +77,12 @@ setMethod(f = "show", signature(object = "Gosum"), definition = function(object)
   cat(paste(stars, "\n"))
   cat("\n")
   cat(paste("Used object:", object@name))
-  cat("\n")  
+  cat("\n")
   cat("\n")
   cat(paste("Components estimated by:", object@method))
   cat("\n")
   cat(paste("Formula for component GARCH models:", paste(as.character(object@model), collapse = " "), "\n"))
-  cat("\n")  
+  cat("\n")
   if(length(object@Zinv) != 0){
     cat("The Inverse of the Linear Map Z:\n")
     print(object@Zinv)
@@ -100,7 +100,7 @@ setMethod(f = "show", signature(object = "Gosum"), definition = function(object)
   for(i in 1:n){
     cat("\n")
     cat(paste(cnames[i], "\n"))
-    print(object@garchc[[i]])  
+    print(object@garchc[[i]])
   }
   invisible(object)
 })
@@ -113,7 +113,7 @@ setMethod(f = "show", signature = "Gopredict", function(object){
   cat("\n")
   cat(paste(stars, "\n"))
   cat(paste(title, "\n"))
-  cat(paste(stars, "\n"))  
+  cat(paste(stars, "\n"))
   cat("\n")
   if(nrow(object@Xf) <= 10){
     cat("Conditional variances:\n")
@@ -122,7 +122,7 @@ setMethod(f = "show", signature = "Gopredict", function(object){
     cat("\n")
     cat("Forecasts of Mean Equation:\n")
     print(object@Xf)
-    cat("\n")    
+    cat("\n")
   } else {
     cat("Head of conditional variances:\n")
     print(head(cvar(object)))
@@ -130,8 +130,8 @@ setMethod(f = "show", signature = "Gopredict", function(object){
     cat("\n")
     cat("Forecasts of Mean Equation:\n")
     print(head(object@Xf))
-    cat("\n")    
-  } 
+    cat("\n")
+  }
 })
 ##
 ## Method definition for objects of class "Goinit"
@@ -142,13 +142,13 @@ setMethod(f = "show", signature = "Goinit", function(object){
   cat("\n")
   cat(paste(stars, "\n"))
   cat(paste(title, "\n"))
-  cat(paste(stars, "\n"))  
+  cat(paste(stars, "\n"))
   cat("\n")
   if(length(object@X) != 0){
      cat("Head of data matrix X:\n")
      print(head(object@X), quote = FALSE)
      cat("\n")
-  } 
+  }
   if(length(object@P) != 0){
     cat("Projection matrix P:\n")
     print(object@P, quote = FALSE)

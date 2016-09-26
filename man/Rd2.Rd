@@ -10,7 +10,7 @@
 
 \description{
   Given an angle \eqn{\theta} whereby \eqn{\theta \in [0, \pi/2)} the
-  function \code{Rd2} returns a 2-dimensional rotation matrix of Euler angles.  
+  function \code{Rd2} returns a 2-dimensional rotation matrix of Euler angles.
 }
 
 \usage{

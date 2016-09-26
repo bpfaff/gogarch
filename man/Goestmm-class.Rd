@@ -31,7 +31,7 @@
 \section{Objects from the Class}{
   Objects can be created by calls of the form \code{new("Goestmm", ...)},
   or with the function \code{gogarch} whereby \code{method = "mm"} has
-  been set.  
+  been set.
 }
 
 \section{Slots}{
@@ -91,7 +91,7 @@ Class \code{"\linkS4class{Goinit}"}, by class "GoGARCH", distance 2.
       object with class attribute \code{"mts" "ts"}.}
     \item{show}{show-method for objects of class \code{Goestmm}.}
     \item{summary}{summary-method for objects of class \code{Goestml},
-  object is of class \code{Gosum}.}  
+  object is of class \code{Gosum}.}
     \item{update}{Updates an object of class \code{Goestml}.}
   }
 }

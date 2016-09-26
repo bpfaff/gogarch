@@ -20,7 +20,7 @@ validOrthomObject(object)
 \details{
   This function is utilized by \code{validObject()}. It is tested
   whether \code{object@M} is a square matrix, has \eqn{det(M) = 1} and
-  \eqn{MM' = I}. 
+  \eqn{MM' = I}.
 }
 
 \value{

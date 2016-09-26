@@ -33,7 +33,7 @@ gonls(params, SSI)
     S(A) = \frac{1}{n} \sum_{t = 1}^n tr([s_t s_t' - I_m - B(s_{t-1}
     s_{t-1}' - I_m)B]^2) = S^*(B)
   }
-  
+
   for retrieving the matrix \eqn{U}. This matrix is the eigen vector
   matrix of \eqn{B}. The linear map \eqn{Z = P \Delta^{1/2} U} and its
   inverse can then be computed for calculating the component matrix

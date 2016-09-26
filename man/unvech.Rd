@@ -5,7 +5,7 @@
 \alias{unvech}
 
 \title{
-  Returns a symmetric matrix from a vector 
+  Returns a symmetric matrix from a vector
 }
 
 \description{
@@ -24,7 +24,7 @@ unvech(v)
 \details{
   The vector \code{v} must have length equal to \eqn{m * (m + 1) / 2},
   whereby \eqn{m} is a dimension of the symmetric matrix \eqn{X_{m
-  \times m}}. 
+  \times m}}.
 }
 
 \value{

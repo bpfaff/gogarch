@@ -14,7 +14,7 @@
 
 \section{Objects from the Class}{
   Objects can be created by calls of the form \code{new("Goinit", ...)},
-  or more conveniently by \code{goinit()}. 
+  or more conveniently by \code{goinit()}.
 }
 
 \section{Slots}{
@@ -36,14 +36,14 @@
 \section{Methods}{
   \describe{
     \item{show}{Prints the slots, whereby for \code{X} only the head is
-  displayed.} 
+  displayed.}
 	 }
 }
 
 \author{Bernhard Pfaff}
 
 \seealso{
-  \code{\link[fGarch]{garchFit}}, \code{\link{goinit}} 
+  \code{\link[fGarch]{garchFit}}, \code{\link{goinit}}
 }
 
 \examples{

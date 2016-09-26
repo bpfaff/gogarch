@@ -23,11 +23,11 @@
 
 \description{
   This class defines the slots for estimated GO-GARCH models. It
-  contains the class \code{Goinit}. 
+  contains the class \code{Goinit}.
 }
 
 \section{Objects from the Class}{
-  Objects can be created by calls of the form \code{new("GoGARCH", ...)}. 
+  Objects can be created by calls of the form \code{new("GoGARCH", ...)}.
 }
 
 \section{Slots}{
@@ -42,7 +42,7 @@
 	 univariate GARCH model fits.}
     \item{\code{estby}:}{Object of class \code{"character"}: Estimation method.}
     \item{\code{CALL}:}{Object of class \code{"call"}: Result of
-	 \code{match.call} in generating function.} 
+	 \code{match.call} in generating function.}
     \item{\code{X}:}{Object of class \code{"matrix"}: The data matrix.}
     \item{\code{V}:}{Object of class \code{"matrix"}: Covariance matrix
 	 of \code{X}.}
@@ -71,7 +71,7 @@ Class \code{"\linkS4class{Goinit}"}, directly.
   attribute \code{"mts" "ts"}.}
     \item{coef}{Returns the coeffiecients of the component GARCH models.}
     \item{converged}{Returns the convergence codes of the component
-  GARCH models.}  
+  GARCH models.}
     \item{formula}{Returns the formula for the component GARCH models.}
     \item{plot}{Plotting of the conditional correlations.}
     \item{predict}{Returns the conditional covariances and mean

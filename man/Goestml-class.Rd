@@ -37,13 +37,13 @@
 \section{Objects from the Class}{
   Objects can be created by calls of the form \code{new("Goestml",
   ...)}, or with the function \code{gogarch} whereby \code{method =
-  "ml"} has been set.  
+  "ml"} has been set.
 }
 
 \section{Slots}{
 	 \describe{
     \item{\code{opt}:}{Object of class \code{"list"}: List returned by
-	 \code{nlminb}.} 
+	 \code{nlminb}.}
     \item{\code{Z}:}{Object of class \code{"matrix"}: Transformation matrix.}
     \item{\code{U}:}{Object of class \code{"matrix"}: Orthogonal matrix.}
     \item{\code{Y}:}{Object of class \code{"matrix"}: Extracted
@@ -85,7 +85,7 @@ Class \code{"\linkS4class{Goinit}"}, by class "GoGARCH", distance 2.
     \item{converged}{Returns the convergence codes of the component
       GARCH models.}
     \item{formula}{Returns the formula for the component GARCH models.}
-    \item{goest}{ML-Estimation of Go-GARCH models.}    
+    \item{goest}{ML-Estimation of Go-GARCH models.}
     \item{logLik}{Returns the value of the log-Likelihood function.}
     \item{plot}{Plotting of the conditional correlations.}
     \item{predict}{Returns the conditional covariances and mean
@@ -97,7 +97,7 @@ Class \code{"\linkS4class{Goinit}"}, by class "GoGARCH", distance 2.
       object with class attribute \code{"mts" "ts"}.}
     \item{show}{show-method for objects of class \code{Goestml}.}
     \item{summary}{summary-method for objects of class \code{Goestml},
-  object is of class \code{Gosum}.}  
+  object is of class \code{Gosum}.}
     \item{update}{Updates an object of class \code{Goestml}.}
   }
 }

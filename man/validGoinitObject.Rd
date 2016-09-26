@@ -22,7 +22,7 @@ validGoinitObject(object)
   This function is utilized by \code{validObject()}. It is tested
   whether \code{object@V}, \code{object@P}, \code{object@Dsqr} are
   square matrices; \code{object@V} coincides with the singular value
-  decomposition. 
+  decomposition.
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
@@ -35,7 +35,7 @@ validGoinitObject(object)
 }
 
 \seealso{
-  \code{\linkS4class{Goinit}}, \code{\link{goinit}} 
+  \code{\linkS4class{Goinit}}, \code{\link{goinit}}
 }
 
 \examples{

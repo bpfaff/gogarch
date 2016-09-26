@@ -25,7 +25,7 @@ control = list(), title = NULL, description = NULL))
   \item{theta}{Vector of Euler angles.}
   \item{object}{An object of formal class \code{Goinit} or an extension
     thereof.}
-  \item{garchlist}{List with optional elements passed to \code{garchFit}.}  
+  \item{garchlist}{List with optional elements passed to \code{garchFit}.}
 }
 
 \details{
@@ -38,7 +38,7 @@ control = list(), title = NULL, description = NULL))
   according to \code{object@garchf}. The conditional variance/covariance
   matrices are calculated according to \eqn{V_t = Z H_t Z'} whereby
   \eqn{H_t} signifies a matrix with the conditional variances of the
-  unvariate GARCH models on its diagonal.  
+  unvariate GARCH models on its diagonal.
 }
 
 \value{

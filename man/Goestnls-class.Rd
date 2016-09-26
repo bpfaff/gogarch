@@ -28,9 +28,9 @@
 }
 
 \section{Objects from the Class}{
-  Objects can be created by calls of the form \code{new("Goestnls", ...)}, 
+  Objects can be created by calls of the form \code{new("Goestnls", ...)},
   or with the function \code{gogarch} whereby \code{method = "nls"} has
-  been set. 
+  been set.
 }
 
 \section{Slots}{
@@ -74,7 +74,7 @@ Class \code{"\linkS4class{Goinit}"}, by class "GoGARCH", distance 2.
   attribute \code{"mts" "ts"}.}
     \item{coef}{Returns the coeffiecients of the component GARCH models.}
     \item{converged}{Returns the convergence codes of the component
-  GARCH models.}  
+  GARCH models.}
     \item{formula}{Returns the formula for the component GARCH models.}
     \item{goest}{NLS-Estimation of Go-GARCH models.}
     \item{plot}{Plotting of the conditional correlations.}

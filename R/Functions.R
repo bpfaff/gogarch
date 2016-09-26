@@ -35,7 +35,7 @@ function(data, formula, scale = FALSE, estby = c("ica", "mm", "ml", "nls"), lag.
   if(estby == "mm"){
     goestmm <- new("Goestmm", gomod)
     gogarch <- goest(object = goestmm, lag.max = lag.max, garchlist = garchlist, ...)
-  }  
+  }
   if(estby == "ica"){
     goestica <- new("Goestica", gomod)
     gogarch <- goest(object = goestica, initial = initial, garchlist = garchlist, ...)
@@ -45,7 +45,7 @@ function(data, formula, scale = FALSE, estby = c("ica", "mm", "ml", "nls"), lag.
   return(gogarch)
 }
 ##
-## Umatch: Matching of orthogonal matrices. This function is employed  
+## Umatch: Matching of orthogonal matrices. This function is employed
 ## whence GO-GARCH models are estimated by methods of moments
 ##
 Umatch <-
@@ -73,7 +73,7 @@ UprodR <-
 function(theta){
   theta <- as.vector(theta)
   l <- length(theta)
-  d <- as.integer(0.5 + sqrt(0.5^2 + 2*l))  
+  d <- as.integer(0.5 + sqrt(0.5^2 + 2*l))
   if(l != d * (d - 1) / 2){
     stop("\nLength of theta does not match implied dimension of U.\n")
   }
@@ -103,7 +103,7 @@ function(theta){
     stop("\nTheta should be in the interval [0, pi/2).\n")
   }
   R <- matrix(c(cos(theta), sin(theta), -sin(theta), cos(theta)), ncol = 2, nrow = 2)
-  return(R)              
+  return(R)
 }
 ##
 ## cora: Computation of autocorrelations/autocovariances of a matrix process.
@@ -202,7 +202,7 @@ function(params, SSI){
     fl[[i]] <- M %*% M
   }
   f <- sum(unlist(lapply(fl, function(x) sum(diag(x))))) / n
-  return(f)   
+  return(f)
 }
 ##
 ## gotheta: For a given vector of Euler angles, this function computes a GO-GARCH model.

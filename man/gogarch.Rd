@@ -10,7 +10,7 @@
 
 \description{
   This function steers the specification and estimation of GO-GARCH
-  models. 
+  models.
 }
 \usage{
 gogarch(data, formula, scale = FALSE, estby = c("ica", "mm", "ml", "nls"),
@@ -18,7 +18,7 @@ gogarch(data, formula, scale = FALSE, estby = c("ica", "mm", "ml", "nls"),
   = 2, skew = 1, shape = 4, cond.dist = "norm", include.mean = FALSE,
   include.delta = NULL, include.skew = NULL, include.shape = NULL,
   leverage = NULL, trace = FALSE, algorithm = "nlminb", hessian =
-  "ropt", control = list(), title = NULL, description = NULL), ...) 
+  "ropt", control = list(), title = NULL, description = NULL), ...)
 }
 
 \arguments{
@@ -29,7 +29,7 @@ gogarch(data, formula, scale = FALSE, estby = c("ica", "mm", "ml", "nls"),
   \item{estby}{Character: by fast ICA \code{estby = "ica"} (the
   default), by Estbys of Moments \code{estby = "mm"} or by
   Maximum-Likelihood \code{estby = "ml"} or by non-linear Least-Squares
-  \code{estby = "nls"}.} 
+  \code{estby = "nls"}.}
   \item{initial}{Numeric: starting values for optimization (used if
   \code{estby = "ml"} or \code{estby = "nls"} has been chosen (see
   Details).}
@@ -38,7 +38,7 @@ gogarch(data, formula, scale = FALSE, estby = c("ica", "mm", "ml", "nls"),
     has been chosen).}
   \item{garchlist}{List: Elements are passed to \code{garchFit}.}
   \item{\dots}{Ellipsis argument: is passed to the \code{goest} method
-  (see details).} 
+  (see details).}
 }
 
 \details{
@@ -55,24 +55,24 @@ gogarch(data, formula, scale = FALSE, estby = c("ica", "mm", "ml", "nls"),
   \code{method = "nls"}. This length must be equal to \eqn{m * (m -
   1)/2} for estimation by Maximum-Likelihood and \eqn{m * (m + 1)/2} for
   estimation by non-linear least-Squares, whereby \eqn{m} is the number
-  of columns of \code{data}.   
+  of columns of \code{data}.
 }
 
 \value{
   Dependent on the chosen estimation method either an object of class
   \code{Goestica} or, \code{Goestmm} or \code{Goestml} or
   \code{Goestnls} is returned. All of these classes extend the
-  \code{GoGARCH} class. 
+  \code{GoGARCH} class.
 }
 
 \references{
   Van der Weide, Roy (2002), GO-GARCH: A Multivariate Generalized
   Orthogonal GARCH Model, \emph{Journal of Applied Econometrics},
   \bold{17(5)}, 549 -- 564.
-  
+
   Boswijk, H. Peter and van der Weide, Roy (2006), Wake me up before
   you GO-GARCH, \emph{Tinbergen Institute Discussion Paper}, \bold{TI
-  2006-079/4}, University of Amsterdam and Tinbergen Institute. 
+  2006-079/4}, University of Amsterdam and Tinbergen Institute.
 
   Boswijk, H. Peter and van der Weide, Roy (2009), Method of Moments
   Estimation of GO-GARCH Models, \emph{Working Paper}, University of
@@ -80,7 +80,7 @@ gogarch(data, formula, scale = FALSE, estby = c("ica", "mm", "ml", "nls"),
 
   Broda, S.A. and Paolella, M.S. (2008): CHICAGO: A Fast and Accurate
   Method for Portfolio Risk Calculation, \emph{Swiss Finance Institute},
-  Research Paper Series No. 08-08, Zuerich.  
+  Research Paper Series No. 08-08, Zuerich.
 }
 
 \author{

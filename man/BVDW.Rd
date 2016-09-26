@@ -27,7 +27,7 @@ Dow Jones Industrial Average and Nasdaq stock indices
 
 \details{
   This data set has been utilized in the source below and was kindly
-  provided by Roy van der Weide. 
+  provided by Roy van der Weide.
 }
 
 \source{

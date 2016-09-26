@@ -14,7 +14,7 @@
   South-West Airlines, Boeing and FedEx. In addition the spot prices for
   crude oil and kerosene are included. This data set was used in the
   article by Boswijk and van der Weide (2009). The data range is from
-  July, 19 1993 until August, 12 2008. 
+  July, 19 1993 until August, 12 2008.
 }
 
 \usage{data(BVDWAIR)}
@@ -39,7 +39,7 @@
 }
 
 \source{
-  \url{http://finance.yahoo.com} and \url{http://www.econstats.com}  
+  \url{http://finance.yahoo.com} and \url{http://www.econstats.com}
 }
 
 \references{

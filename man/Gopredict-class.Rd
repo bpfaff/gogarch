@@ -19,7 +19,7 @@
 \section{Objects from the Class}{
   Objects can be created by calls of the form \code{new("Gopredict",
   ...)}, or with the method \code{predict} of formal class objects
-  \code{GoGARCH} and \code{Goestml}.   
+  \code{GoGARCH} and \code{Goestml}.
 }
 
 \section{Slots}{
@@ -57,7 +57,7 @@
 
 
 \seealso{
-  \code{\linkS4class{GoGARCH}}, \code{\linkS4class{Goestml}} 
+  \code{\linkS4class{GoGARCH}}, \code{\linkS4class{Goestml}}
 }
 
 \keyword{classes}

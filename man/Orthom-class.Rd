@@ -47,7 +47,7 @@
   is utilised by \code{validObject()}.}
 
 \seealso{
-   \code{\link{UprodR}}, \code{\link{validOrthomObject}} 
+   \code{\link{UprodR}}, \code{\link{validOrthomObject}}
 }
 
 \examples{

@@ -26,7 +26,7 @@
 
 \details{
   The declared estimation methods are called from function
-  \code{gogarch}.  
+  \code{gogarch}.
 }
 
 \author{

@@ -10,7 +10,7 @@ Creation of an orthogonal matrix
 
 \description{
 This function returns an orthogonal matrix which results of the
-matrix products of rotation matrices. 
+matrix products of rotation matrices.
 }
 
 \usage{
@@ -24,7 +24,7 @@ UprodR(theta)
 \details{
   The length of \code{theta} must be equal to \eqn{m * (m - 1) / 2},
   where \eqn{m} is the dimension of the orthogonal matrix. The elements
-  of \code{theta} must lie in the interval \eqn{[0, \pi/2)}. 
+  of \code{theta} must lie in the interval \eqn{[0, \pi/2)}.
 }
 \value{
   \item{result}{Object of class \code{Orthom}.}
@@ -32,7 +32,7 @@ UprodR(theta)
 \references{
   Vilenkin, N. Ja. (1968), Special Functions and the Theory of Group
   Representations, Translations of Mathematical Monographs, \bold{22},
-  American Math. Soc., Providence, Rhode Island, USA. 
+  American Math. Soc., Providence, Rhode Island, USA.
 }
 
 \author{

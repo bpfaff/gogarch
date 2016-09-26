@@ -29,7 +29,7 @@
 \details{
   This data set has been utilized in the source below and can be
   downloaded from the web-site of the \emph{Journal of Applied
-    Econometrics} (see link below). 
+    Econometrics} (see link below).
 }
 
 \source{
@@ -40,7 +40,7 @@
 
 \references{
   \url{http://www.nasdaq.com}\cr
-  \url{http://www.djindexes.com}\cr 
+  \url{http://www.djindexes.com}\cr
   \url{http://qed.econ.queensu.ca/jae/2002-v17.5/van_der_weide}
 }
 

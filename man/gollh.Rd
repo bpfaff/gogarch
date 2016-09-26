@@ -10,7 +10,7 @@
 
 \description{
   This function returns the negative of the log-Likelihood function for
-  GO-GARCH models. 
+  GO-GARCH models.
 }
 
 \usage{
@@ -32,7 +32,7 @@ gollh(params, object, garchlist)
   }
   whereby \eqn{Z = P \Delta^{\frac{1}{2}} U_0}, \eqn{y_t = Z^{-1}x_t} and
     \eqn{H_t} is the conditional variance matrix of the independent
-    components. 
+    components.
 }
 
 \value{

@@ -22,9 +22,9 @@ setMethod(f = "goest", signature(object = "Goestica"), definition = function(obj
   H <- matrix(unlist(lapply(fitted, function(x) x@h.t)), ncol = m, nrow = n)
   Hdf <- data.frame(t(H))
   Ht <- lapply(Hdf, function(x) Z %*% diag(x) %*% t(Z))
-  names(Ht) <- rownames(object@X)            
+  names(Ht) <- rownames(object@X)
   result <- new("Goestica", ica = ica, estby = "fast ICA", U = W, Z = Z, Y = Y, H = Ht, models = fitted, X = object@X, P = object@P, Dsqr = object@Dsqr, V = object@V, garchf = object@garchf, name = object@name)
-  return(result)  
+  return(result)
 })
 ##
 ## Method definition for objects of class "Goestmm"
@@ -76,9 +76,9 @@ setMethod(f = "goest", signature(object = "Goestmm"), definition = function(obje
   H <- matrix(unlist(lapply(fitted, function(x) x@h.t)), ncol = m, nrow = n)
   Hdf <- data.frame(t(H))
   Ht <- lapply(Hdf, function(x) Z %*% diag(x) %*% t(Z))
-  names(Ht) <- rownames(object@X)          
-  result <- new("Goestmm", weights = weights, Umatched = Umatched, estby = "Methods of Moments", U = U, Z = Z, Y = Y, H = Ht, models = fitted, X = object@X, P = object@P, Dsqr = object@Dsqr, V = object@V, garchf = object@garchf, name = object@name) 
-  return(result)  
+  names(Ht) <- rownames(object@X)
+  result <- new("Goestmm", weights = weights, Umatched = Umatched, estby = "Methods of Moments", U = U, Z = Z, Y = Y, H = Ht, models = fitted, X = object@X, P = object@P, Dsqr = object@Dsqr, V = object@V, garchf = object@garchf, name = object@name)
+  return(result)
 })
 ##
 ## Method definition for objects of class "Goestnls"
@@ -101,7 +101,7 @@ setMethod(f = "goest", signature(object = "Goestnls"), definition = function(obj
   Dsqr <- object@Dsqr
   Dsqri <- diag(1 / diag(Dsqr))
   P <- object@P
-  S <- X %*% P %*% Dsqri 
+  S <- X %*% P %*% Dsqri
   SSI <- list()
   length(SSI) <- n
   for(i in 1:n){
@@ -109,7 +109,7 @@ setMethod(f = "goest", signature(object = "Goestnls"), definition = function(obj
   }
   SSI0 <- SSI[-1]
   SSI1 <- SSI[-n]
-  SSI <- list(SSI0 = SSI0, SSI1 = SSI1)  
+  SSI <- list(SSI0 = SSI0, SSI1 = SSI1)
   nlsobj <- optim(par = initial, fn = gonls, SSI = SSI, ...)
   B <- unvech(nlsobj$par)
   U <- eigen(B)$vectors
@@ -119,9 +119,9 @@ setMethod(f = "goest", signature(object = "Goestnls"), definition = function(obj
   H <- matrix(unlist(lapply(fitted, function(x) x@h.t)), ncol = m, nrow = n)
   Hdf <- data.frame(t(H))
   Ht <- lapply(Hdf, function(x) Z %*% diag(x) %*% t(Z))
-  names(Ht) <- rownames(object@X)          
-  result <- new("Goestnls", nls = nlsobj, estby = "non-linear Least-Squares", U = U, Z = Z, Y = Y, H = Ht, models = fitted, X = object@X, P = object@P, Dsqr = object@Dsqr, V = object@V, garchf = object@garchf, name = object@name) 
-  return(result)  
+  names(Ht) <- rownames(object@X)
+  result <- new("Goestnls", nls = nlsobj, estby = "non-linear Least-Squares", U = U, Z = Z, Y = Y, H = Ht, models = fitted, X = object@X, P = object@P, Dsqr = object@Dsqr, V = object@V, garchf = object@garchf, name = object@name)
+  return(result)
 })
 ##
 ## Method definition for objects of class "Goestml"
@@ -141,5 +141,5 @@ setMethod(f = "goest", signature(object = "Goestml"), definition = function(obje
   llobj <- nlminb(start = initial, objective = gollh, object = object, garchlist = garchlist, lower = 1.5e-8, upper = pi/2, ...)
   gotheta <- gotheta(llobj$par, object, garchlist)
   result <- new("Goestml", opt = llobj, estby = "maximum likelihood", gotheta)
-  return(result)  
+  return(result)
 })
